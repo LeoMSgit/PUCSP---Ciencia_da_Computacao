@@ -1,25 +1,27 @@
-// Enumereção com Array Randomica
+// Enumereção com Array variável
 
 #include <stdio.h>
 #include <stdlib.h> 
 
 int main (){
-	int N[20];
 	int i;
+	int Array[20];
 	
 	//Input 
-   	printf(" Os numeros gerados foram: \n");   
-    	for (i = 0; i <20; i++)  
-        	printf(" %d", rand() % 10);
+    printf(" Os numeros gerados foram: \n");   
+    for (i=0; i <20; i++)  
+        printf(" %d", rand() % 10);
+    Array[i] = rand() % 10;
+        
 	//Output: Matriz em ordem de entrada
 	printf("\nEm ordem de Entrada\n");
 	for (i=0; i < 20; i++)
-		printf("%d\t", N[i]);
+		printf("%d\t", Array[i]);
 	printf("\n");
 	
 	//Output: Matriz inversa
 	printf("\nEm ordem Inversa\n");
 	for(i=19; i >= 0; i--)
-		printf("%d\t", N[i]);
+		printf("%d\t", Array[i]);
 	printf("\n");
 }
