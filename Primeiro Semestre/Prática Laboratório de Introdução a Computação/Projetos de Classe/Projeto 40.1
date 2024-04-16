@@ -1,0 +1,25 @@
+// Enumereção com Números Randomicos
+// Tentativa própria de criar uma Array com números aleatórios
+
+#include <stdio.h>
+#include <stdlib.h> 
+
+int main (){
+	int N[20];
+	int i;
+	//Input 
+    printf(" Random Numbers are: \n");   
+    for (i = 0; i <20; i++)  
+        printf(" %d", rand() % 10);
+	//Output: Matriz em ordem de entrada
+	printf("\nEm ordem de Entrada\n");
+	for (i=0; i < 20; i++)
+		printf("%d\t", N[i]);
+	printf("\n");
+	
+	//Output: Matriz inversa
+	printf("\nEm ordem Inversa\n");
+	for(i=19; i >= 0; i--)
+		printf("%d\t", N[i]);
+	printf("\n");
+}
