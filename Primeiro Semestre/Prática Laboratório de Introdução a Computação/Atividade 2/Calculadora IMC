@@ -5,8 +5,9 @@ int main (){
 	Peso = 0;
 	float Altura;
 	Altura = 0;
+	float Altura1;
+	Altura1 = Altura/100;
 	float IMC;
-	IMC = ("%f\n", Peso/Altura*Altura);
 	
 	
 	//Input 
@@ -15,26 +16,19 @@ int main (){
 		scanf("%f\Digite seu Peso em Kg: ", &Peso);
 		if (Peso <= 0){
 			printf("Valor Invalido");
-			printf("");
-			printf("");
-			printf("");
+			printf("\n");
 			} 
 	}
 	
 	while  (Altura <= 0){
 		printf("Digite sua Altura em Cemtimetros: ");
-	scanf("%f\Digite sua Altura em Cemtimetros", &Altura/10);
-		if (Peso <= 0){
+		scanf("%f\Digite sua Altura em Cemtimetros", &Altura);
 			printf("Valor Invalido");
-			printf("");
-			printf("");
-			printf("");
-			} 
+			printf("\n");
 	}
-	
 
 	//Output
-	printf("Seu Peso: %f\n", Peso);
-	printf("Sua Altura: %f\n", Altura);
-	printf("Seu IMC: %f\n", Peso/(Altura*Altura));
+	printf("Seu Peso: %fKg\n", Peso);
+	printf("Sua Altura: %fmetros\n", Altura/100);
+	printf("Seu IMC: %f\n", Peso/(Altura1*Altura1));
 }
