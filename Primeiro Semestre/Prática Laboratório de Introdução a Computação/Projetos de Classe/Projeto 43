@@ -1,4 +1,4 @@
-// Entrar texto de até caracyeres e realizar as seguintes substituições:
+// Entrar texto de até 100 caracteres e realizar as seguintes substituições:
 // A por 4; E por 3; I por 1; O por 0; U por V
 // Utilizando o comando switch, considerando letras maisculas e minusculas 
 
