@@ -15,14 +15,18 @@ int main (){
 //	
 //MENU
 //
-	while (Menu != 1 && Menu != 2 && Menu != 3) {
-	    printf("Escolha sua opção de cálculo: \n");
-    	printf("1 - IMC\n2 - Peso Ideal\n3 - Altura Ideal\n");
-    	scanf("%d", &Menu);
-    	if (Menu != 1 && Menu != 2 && Menu != 3){
-    	    printf("Erro: Entrada inválida\n\n");
-    	}
-	}
+	while (1) {
+        printf("Escolha sua opção de cálculo: \n");
+        printf("1 - IMC\n2 - Peso Ideal\n3 - Altura Ideal\n4 - Sair\n");
+        scanf("%d", &Menu);
+        if (Menu == 1 || Menu == 2 || Menu == 3) {
+            break;
+        } else if (Menu == 4) {
+            printf("Encerrando o programa...\n");
+            return 0;
+        } else {
+            printf("Erro: Entrada inválida\n\n");
+        }
 // 
 // CALCULADORA IMC
 //
@@ -126,4 +130,5 @@ int main (){
         	Altura_Ideal = sqrt(Peso/IMC);
         	printf("Sua Altura ideal é: %.2f\ metros", Altura_Ideal);
             }
+}
 }
