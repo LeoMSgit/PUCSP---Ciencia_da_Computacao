@@ -26,11 +26,11 @@ if Menu == 1:
         Altura = float(input("Digite sua Altura em Centímetros: "))
     
     # Output
-    print(f"Seu Peso: {Peso} Kg")
+    print("Seu Peso: {} Kg".format(Peso))
     Altura1 = Altura / 100
-    print(f"Sua Altura: {Altura1:.2f} metros")
+    print("Sua Altura: {:.2f} metros".format(Altura1))
     IMC = Peso / (Altura1 * Altura1)
-    print(f"Seu IMC é: {IMC:.1f}")
+    print("Seu IMC é: {:.1f}".format(IMC))
     
     # Tabela IMC
     print()
@@ -63,11 +63,11 @@ elif Menu == 2:
         Altura = float(input("Digite sua Altura em Centímetros: "))
     
     # Output
-    print(f"Seu IMC: {IMC:.1f}")
+    print("Seu IMC: {:.1f}".format(IMC))
     Altura1 = Altura / 100
-    print(f"Sua Altura: {Altura1:.2f} metros")
+    print("Sua Altura: {:.2f} metros".format(Altura1))
     Peso_Ideal = IMC * (Altura1 * Altura1)
-    print(f"Seu Peso Ideal é: {Peso_Ideal:.1f} Kg")
+    print("Seu Peso Ideal é: {:.1f} Kg".format(Peso_Ideal))
 
 # CALCULADORA ALTURA IDEAL
 else:  # Menu == 3
@@ -85,7 +85,7 @@ else:  # Menu == 3
         IMC = float(input("Digite seu IMC: "))
     
     # Output
-    print(f"Seu Peso: {Peso:.1f}")
-    print(f"Seu IMC: {IMC:.1f}")
+    print("Seu Peso: {:.1f}".format(Peso))
+    print("Seu IMC: {:.1f}".format(IMC))
     Altura_Ideal = math.sqrt(Peso / IMC)
-    print(f"Sua Altura ideal é: {Altura_Ideal:.2f} metros")
+    print("Sua Altura ideal é: {:.2f} metros".format(Altura_Ideal))
