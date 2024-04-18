@@ -3,89 +3,93 @@ import math
 Menu = 0
 
 # MENU
-while Menu != 1 and Menu != 2 and Menu != 3:
+while Menu != 1 and Menu != 2 and Menu != 3 and Menu != 4:
     print("Escolha sua opção de cálculo:")
-    print("1 - IMC\n2 - Peso Ideal\n3 - Altura Ideal")
+    print("1 - IMC\n2 - Peso Ideal\n3 - Altura Ideal\n4 - Sair")
     Menu = int(input())
-    if Menu != 1 and Menu != 2 and Menu != 3:
+    if Menu not in [1, 2, 3, 4]:
         print("Erro: Entrada inválida\n")
 
-# CALCULADORA IMC
-if Menu == 1:
-    print("Você selecionou IMC")
-    
-    # Input IMC
-    Peso = float(input("Digite seu Peso em Kg: "))
-    while Peso <= 0:
-        print("Erro: Entrada inválida")
+# Opção de saída
+if Menu == 4:
+    print("Encerrando o programa...")
+else:
+    # CALCULADORA IMC
+    if Menu == 1:
+        print("Você selecionou IMC")
+        
+        # Input IMC
         Peso = float(input("Digite seu Peso em Kg: "))
-    
-    Altura = float(input("Digite sua Altura em Centímetros: "))
-    while Altura <= 0:
-        print("Erro: Entrada inválida")
+        while Peso <= 0:
+            print("Erro: Entrada inválida")
+            Peso = float(input("Digite seu Peso em Kg: "))
+        
         Altura = float(input("Digite sua Altura em Centímetros: "))
-    
-    # Output
-    print("Seu Peso: {} Kg".format(Peso))
-    Altura1 = Altura / 100
-    print("Sua Altura: {:.2f} metros".format(Altura1))
-    IMC = Peso / (Altura1 * Altura1)
-    print("Seu IMC é: {:.1f}".format(IMC))
-    
-    # Tabela IMC
-    print()
-    if IMC < 18.5:
-        print("Sua classificação é: Peso Baixo")
-    elif 18.5 <= IMC <= 24.9:
-        print("Sua classificação é: Peso Normal")
-    elif 24.9 < IMC <= 29.9:
-        print("Sua classificação é: Sobrepeso")
-    elif 29.9 < IMC <= 34.9:
-        print("Sua classificação é: Obesidade (Grau 1)")
-    elif 34.9 < IMC <= 39.9:
-        print("Sua classificação é: Obesidade Severa (Grau 2)")
-    else:
-        print("Sua classificação é: Obesidade Morbida (Grau 3)")
+        while Altura <= 0:
+            print("Erro: Entrada inválida")
+            Altura = float(input("Digite sua Altura em Centímetros: "))
+        
+        # Output
+        print("Seu Peso: {:.1f} Kg".format(Peso))
+        Altura1 = Altura / 100
+        print("Sua Altura: {:.2f} metros".format(Altura1))
+        IMC = Peso / (Altura1 * Altura1)
+        print("Seu IMC é: {:.1f}".format(IMC))
+        
+        # Tabela IMC
+        print()
+        if IMC < 18.5:
+            print("Sua classificação é: Peso Baixo")
+        elif 18.5 <= IMC <= 24.9:
+            print("Sua classificação é: Peso Normal")
+        elif 24.9 < IMC <= 29.9:
+            print("Sua classificação é: Sobrepeso")
+        elif 29.9 < IMC <= 34.9:
+            print("Sua classificação é: Obesidade (Grau 1)")
+        elif 34.9 < IMC <= 39.9:
+            print("Sua classificação é: Obesidade Severa (Grau 2)")
+        else:
+            print("Sua classificação é: Obesidade Morbida (Grau 3)")
 
-# CALCULADORA PESO IDEAL
-elif Menu == 2:
-    print("Você selecionou Peso Ideal")
-    
-    # Input Peso
-    IMC = float(input("Digite seu IMC: "))
-    while IMC <= 0:
-        print("Erro: Entrada inválida")
+    # CALCULADORA PESO IDEAL
+    elif Menu == 2:
+        print("Você selecionou Peso Ideal")
+        
+        # Input Peso
         IMC = float(input("Digite seu IMC: "))
-    
-    Altura = float(input("Digite sua Altura em Centímetros: "))
-    while Altura <= 0:
-        print("Erro: Entrada inválida")
+        while IMC <= 0:
+            print("Erro: Entrada inválida")
+            IMC = float(input("Digite seu IMC: "))
+        
         Altura = float(input("Digite sua Altura em Centímetros: "))
-    
-    # Output
-    print("Seu IMC: {:.1f}".format(IMC))
-    Altura1 = Altura / 100
-    print("Sua Altura: {:.2f} metros".format(Altura1))
-    Peso_Ideal = IMC * (Altura1 * Altura1)
-    print("Seu Peso Ideal é: {:.1f} Kg".format(Peso_Ideal))
+        while Altura <= 0:
+            print("Erro: Entrada inválida")
+            Altura = float(input("Digite sua Altura em Centímetros: "))
+        
+        # Output
+        print("Seu IMC: {:.1f}".format(IMC))
+        Altura1 = Altura / 100
+        print("Sua Altura: {:.2f} metros".format(Altura1))
+        Peso_Ideal = IMC * (Altura1 * Altura1)
+        print("Seu Peso Ideal é: {:.1f} Kg".format(Peso_Ideal))
 
-# CALCULADORA ALTURA IDEAL
-else:  # Menu == 3
-    print("Você selecionou Altura Ideal")
-    
-    # Input Altura
-    Peso = float(input("Digite seu Peso: "))
-    while Peso <= 0:
-        print("Erro: Entrada inválida")
+    # CALCULADORA ALTURA IDEAL
+    else:  # Menu == 3
+        print("Você selecionou Altura Ideal")
+        
+        # Input Altura
         Peso = float(input("Digite seu Peso: "))
-    
-    IMC = float(input("Digite seu IMC: "))
-    while IMC <= 0:
-        print("Erro: Entrada inválida")
+        while Peso <= 0:
+            print("Erro: Entrada inválida")
+            Peso = float(input("Digite seu Peso: "))
+        
         IMC = float(input("Digite seu IMC: "))
-    
-    # Output
-    print("Seu Peso: {:.1f}".format(Peso))
-    print("Seu IMC: {:.1f}".format(IMC))
-    Altura_Ideal = math.sqrt(Peso / IMC)
-    print("Sua Altura ideal é: {:.2f} metros".format(Altura_Ideal))
+        while IMC <= 0:
+            print("Erro: Entrada inválida")
+            IMC = float(input("Digite seu IMC: "))
+        
+        # Output
+        print("Seu Peso: {:.1f}".format(Peso))
+        print("Seu IMC: {:.1f}".format(IMC))
+        Altura_Ideal = math.sqrt(Peso / IMC)
+        print("Sua Altura ideal é: {:.2f} metros".format(Altura_Ideal))
