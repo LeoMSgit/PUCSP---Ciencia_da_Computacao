@@ -1,3 +1,6 @@
+// Enumereção com Array Pseudo-aleatórias
+
+
 #include <stdio.h>
 #include <stdlib.h> 
 
