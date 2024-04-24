@@ -1,4 +1,4 @@
-//Localizar Posição de Elemento na String
+//Localizar um elemento na string
 //Entrar com um texto (100 caracteres)
 //Localizar todas as ocorrencias desse caractere no texto, indicando quantas vezes ocorre e suas respectivas posições (començando do 0)
 
@@ -35,11 +35,7 @@ int main(){
 		if (cont > 0)
 			printf("\tTotal de Ocorrencias: %d\n", cont);
 		else
-			printf("\tCaractere Inexistente no Texto\n");
-		
+			printf("\tCaractere Inexistente no Texto\n");	
 	}
-	while (Carac[0] != '@');
-		printf("%i\n", cont);
-	
-	
+	while (Carac[0] != '@');	
 }
