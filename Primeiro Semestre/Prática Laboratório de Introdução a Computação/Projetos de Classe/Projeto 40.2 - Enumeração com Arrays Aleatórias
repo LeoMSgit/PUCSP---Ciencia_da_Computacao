@@ -1,3 +1,5 @@
+// Enumereção com Array Aleatórias
+
 #include <stdio.h>
 #include <stdlib.h> 
 #include <time.h> // Inclui a biblioteca time.h para usar a função time()
