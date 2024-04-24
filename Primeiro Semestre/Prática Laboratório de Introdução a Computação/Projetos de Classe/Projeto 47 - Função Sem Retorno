@@ -6,7 +6,7 @@
 #include <stdio.h>
 int N;
 
-void fdobro(int Numero);		//Protótipo de função, serve para avisar o sistema de que essa função não é errada
+void fdobro(int Numero);		//Protótipo de função, serve para avisar o sistema de que essa função não é errada e será usada futuramente
 	
 main(){
 	do{
