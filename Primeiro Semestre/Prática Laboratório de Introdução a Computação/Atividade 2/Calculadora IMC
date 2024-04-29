@@ -8,13 +8,13 @@ int main (){
 	Altura;
 	float Altura1;
 	float IMC;
-    int Menu;
-    float Peso_Ideal;
-    float Altura_Ideal;
+	int Menu;
+	float Peso_Ideal;
+	float Altura_Ideal;
 	
-//	
+	
 //MENU
-//
+
 	while (Menu != 1 && Menu != 2 && Menu != 3 && Menu != 4) {
         printf("Escolha sua opção de cálculo: \n");
         printf("1 - IMC\n2 - Peso Ideal\n3 - Altura Ideal\n4 - Sair\n");
@@ -27,9 +27,9 @@ int main (){
         } else {
             printf("Erro: Entrada inválida\n\n");
         }
-// 
+ 
 // CALCULADORA IMC
-//
+
 	 if (Menu == 1) {
             printf("Você selecionou IMC\n");
     	
@@ -72,9 +72,9 @@ int main (){
     	    }
     	    
     	}
-//    	
+    	
 // CALCULADORA PESO IDEAL
-//
+
         else if (Menu == 2){
             printf("Você selecionou Peso Ideal\n");
             
@@ -101,9 +101,9 @@ int main (){
         	printf("Seu Peso Ideal é: %.1f Kg", Peso_Ideal);
             }
 
-//
+
 // CALCULADORA ALTURA IDEAL
-//
+
         else {      // Menu == 3
             printf("Você selecionou Altura Ideal\n");
             
