@@ -2,133 +2,127 @@
 #include <math.h>
 
 int main (){
-	float Peso;
-	Peso;
-	float Altura;
-	Altura;
-	float Altura1;
-	float IMC;
-	int Menu;
-	float Peso_Ideal;
-	float Altura_Ideal;
-	
-	
-//MENU
+    float Peso;
+    float Altura;
+    float IMC;
+    int Menu = 0;
+    float Peso_Ideal;
+    float Altura_Ideal;
 
-	while (Menu != 1 && Menu != 2 && Menu != 3 && Menu != 4) {
-        printf("Escolha sua opção de cálculo: \n");
+    // MENU
+    while (Menu != 4) {
+        printf("\nEscolha sua opção de cálculo: \n");
         printf("1 - IMC\n2 - Peso Ideal\n3 - Altura Ideal\n4 - Sair\n");
         scanf("%d", &Menu);
-        if (Menu == 1 || Menu == 2 || Menu == 3) {
-            break;
-        } else if (Menu == 4) {
-            printf("Encerrando o programa...\n");
-            return 0;
-        } else {
-            printf("Erro: Entrada inválida\n\n");
+        
+        // CALCULADORA IMC
+        if (Menu == 1) {
+            printf("\nVocê selecionou IMC\n");
+
+            // Input Peso
+            do {
+                printf("Digite seu Peso em Kg: ");
+                scanf("%f", &Peso);
+                if (Peso <= 0) {
+                    printf("Erro: Entrada inválida\n");
+                }
+            } while (Peso <= 0);
+
+            // Input Altura
+            do {
+                printf("Digite sua Altura em Centímetros: ");
+                scanf("%f", &Altura);
+                if (Altura <= 0) {
+                    printf("Erro: Entrada inválida\n");
+                }
+            } while (Altura <= 0);
+
+            // Calcular IMC
+            Altura /= 100;
+            IMC = Peso / (Altura * Altura);
+
+            // Output
+            printf("\nSeu IMC é: %.1f\n", IMC);
+            
+            // Tabela IMC
+            if (IMC < 18.5) {
+                printf("Sua classificação é: Peso Baixo\n");
+            } else if (IMC >= 18.5 && IMC <= 24.9) {
+                printf("Sua classificação é: Peso Normal\n");
+            } else if (IMC > 24.9 && IMC <= 29.9) {
+                printf("Sua classificação é: Sobrepeso\n");
+            } else if (IMC > 29.9 && IMC <= 34.9) {
+                printf("Sua classificação é: Obesidade (Grau 1)\n");
+            } else if (IMC > 34.9 && IMC <= 39.9) {
+                printf("Sua classificação é: Obesidade Severa (Grau 2)\n");
+            } else {
+                printf("Sua classificação é: Obesidade Mórbida (Grau 3)\n");
+            }
+        } 
+            // CALCULADORA PESO IDEAL
+            else if (Menu == 2) {
+            printf("\nVocê selecionou Peso Ideal\n");
+
+            // Input IMC
+            do {
+                printf("Digite seu IMC: ");
+                scanf("%f", &IMC);
+                if (IMC <= 0) {
+                    printf("Erro: Entrada inválida\n");
+                }
+            } while (IMC <= 0);
+
+            // Input Altura
+            do {
+                printf("Digite sua Altura em Centímetros: ");
+                scanf("%f", &Altura);
+                if (Altura <= 0) {
+                    printf("Erro: Entrada inválida\n");
+                }
+            } while (Altura <= 0);
+
+            // Calcular Peso Ideal
+            Altura /= 100;
+            Peso_Ideal = IMC * (Altura * Altura);
+
+            // Output
+            printf("\nSeu Peso Ideal é: %.1f Kg\n", Peso_Ideal);
+        } 
+            // CALCULADORA ALTURA IDEAL        
+            else if (Menu == 3) {
+            printf("\nVocê selecionou Altura Ideal\n");
+
+            // Input Peso
+            do {
+                printf("Digite seu Peso em Kg: ");
+                scanf("%f", &Peso);
+                if (Peso <= 0) {
+                    printf("Erro: Entrada inválida\n");
+                }
+            } while (Peso <= 0);
+
+            // Input IMC
+            do {
+                printf("Digite seu IMC: ");
+                scanf("%f", &IMC);
+                if (IMC <= 0) {
+                    printf("Erro: Entrada inválida\n");
+                }
+            } while (IMC <= 0);
+
+            // Calcular Altura Ideal
+            Altura_Ideal = sqrt(Peso / IMC);
+
+            // Output
+            printf("\nSua Altura ideal é: %.2f metros\n", Altura_Ideal);
+        } 
+            // SAIR DO PROGRAMA
+            else if (Menu == 4) {
+            printf("\nEncerrando o programa...\n");
+        } 
+        // INPUT INVÁLIDO 
+        else {
+            printf("\nErro: Opção inválida\n");
         }
- 
-// CALCULADORA IMC
-
-	 if (Menu == 1) {
-            printf("Você selecionou IMC\n");
-    	
-    	//Input IMC
-    	while  (Peso <= 0){
-    		printf("Digite seu Peso em Kg: ");
-    		scanf("%f", &Peso);
-    		if (Peso <= 0){
-    			printf("\nErro: Entrada inválida\n");
-    			} 
-    	}
-    	
-    	while  (Altura <= 0){
-    		printf("Digite sua Altura em Cemtimetros: ");
-    		scanf("%f", &Altura);
-    			printf("\nErro: Entrada inválida\n");
-    	}
-    
-    	//Output
-    	printf("Seu Peso: %.1f Kg\n", Peso);
-    	Altura1 = Altura/100;
-    	printf("Sua Altura: %.2f metros\n", Altura1);
-    	IMC = Peso/(Altura1*Altura1);
-    	printf("Seu IMC é: %.1f", IMC);
-    	
-    	//Tabela IMC
-    	printf("\n");
-    	if (IMC < 18.5){
-    	    printf("Sua classificaçao é: Peso Baixo");}
-    	    else if (IMC >= 18.5 && IMC <= 24.9){
-    	        printf("Sua classificaçao é: Peso Normal");}
-    	    else if (IMC > 24.9 && IMC <= 29.9){
-    	        printf("Sua classificaçao é: Sobrepeso");}
-    	    else if (IMC > 29.9 && IMC <= 34.9){
-    	        printf("Sua classificaçao é: Obesidade (Grau 1)");}
-    	    else if (IMC > 34.9 && IMC <= 39.9){
-    	        printf("Sua classificaçao é: Obesidade Severa (Grau 2");}
-    	    else {
-    	        printf("Sua classificação é: Obesidade Morbida (Grau 3");
-    	    }
-    	    
-    	}
-    	
-// CALCULADORA PESO IDEAL
-
-        else if (Menu == 2){
-            printf("Você selecionou Peso Ideal\n");
-            
-            //Input Peso
-        	while  (IMC <= 0){
-        		printf("Digite seu IMC: ");
-        		scanf("%f", &IMC);
-        		if (IMC <= 0){
-        			printf("\nErro: Entrada inválida\n");
-        			} 
-        	}
-        	
-        	while  (Altura <= 0){
-        		printf("Digite sua Altura em Cemtimetros: ");
-        		scanf("%f", &Altura);
-        			printf("\nErro: Entrada inválida\n");
-        	}
-        
-        	//Output
-        	printf("Seu IMC: %.1f\n", IMC);
-        	Altura1 = Altura/100;
-        	printf("Sua Altura: %.2f metros\n", Altura1);
-        	Peso_Ideal = IMC*(Altura1*Altura1);
-        	printf("Seu Peso Ideal é: %.1f Kg", Peso_Ideal);
-            }
-
-
-// CALCULADORA ALTURA IDEAL
-
-        else {      // Menu == 3
-            printf("Você selecionou Altura Ideal\n");
-            
-            //Input Altura
-        	while  (Peso <= 0){
-        		printf("Digite seu Peso: ");
-        		scanf("%f", &Peso);
-        		if (Peso <= 0){
-        			printf("\nErro: Entrada inválida\n");
-        			} 
-        	}
-        	
-        	while  (IMC <= 0){
-        		printf("Digite seu IMC: ");
-        		scanf("%f", &IMC);
-        		if (IMC <= 0){
-        			printf("\nErro: Entrada inválida\n");
-        			}
-        	}
-        
-        	//Output
-        	printf("Seu Peso: %.1f\n", Peso);
-        	printf("Seu IMC: %.1f\n", IMC);
-        	Altura_Ideal = sqrt(Peso/IMC);
-        	printf("Sua Altura ideal é: %.2f\ metros", Altura_Ideal);
-            }
-}
+    }
 }
