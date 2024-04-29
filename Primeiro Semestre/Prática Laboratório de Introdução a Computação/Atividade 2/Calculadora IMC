@@ -15,7 +15,7 @@ int main (){
 //	
 //MENU
 //
-	while (1) {
+	while (Menu != 1 && Menu != 2 && Menu != 3 && Menu != 4) {
         printf("Escolha sua opção de cálculo: \n");
         printf("1 - IMC\n2 - Peso Ideal\n3 - Altura Ideal\n4 - Sair\n");
         scanf("%d", &Menu);
