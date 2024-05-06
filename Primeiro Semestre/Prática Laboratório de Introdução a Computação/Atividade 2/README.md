@@ -1,29 +1,10 @@
-PUCSP/1ºsem 2024 LIC-prática
-Laboratório de Introdução à Computação - prof. Eli Banks
-Atividade 02
-Exercício individual, a ser entregue via ambiente Teams com o código:
-XXXXX-Ativ02
-onde: XXXXX corresponde às letras iniciais do nome do aluno
- (usar o hífen “-“ como separação no código)
-Implementar o seguinte programa codificado em linguagem C usando apenas a tela 
-texto: 
-IMC é a sigla para Índice de Massa Corporal, que é um cálculo que serve para avaliar se a pessoa 
-está dentro do seu peso ideal em relação à altura. Assim, de acordo com o valor do resultado de 
-IMC, a pessoa pode saber se está dentro do peso ideal, acima ou abaixo do peso desejado. Estar 
-dentro do peso certo é importante porque estar acima ou abaixo desse peso pode influenciar 
-bastante a saúde, aumentando o risco de doenças como desnutrição quando se está abaixo do 
-peso, e AVC ou infarto, quando se está acima do peso. O cálculo do IMC deve ser feito usando a 
-seguinte fórmula matemática: Peso ÷ (altura x altura). A tabela abaixo mostra a classificação 
-da pessoa a partir do resultado do IMC. Descubra e aplique as unidades de medida mais 
-apropriadas para o caso: (metro, cm, kg, mg, etc.) orientando assim o usuário final.
-Objetivo: Desenvolver um programa em C para determinar se uma pessoa está com peso 
-baixo, normal ou sobrepeso. O programa deverá receber do usuário a seu peso atual e, em 
-seguida, apresentar a sua classificação conforme a tabela IMC. 
-Importante: o programa deverá ser reciclável, isto é: deve ficar solicitando repetidamente o 
-peso da pessoa, finalizando somente quando o peso informado for zero.
-ATENÇÃO: A classificação das faixas de IMC conforme a tabela acima não está
-matematicamente bem explicitada! Supere isso comparando os índices calculados com os 
-limites iniciais de classificação. (por exemplo: IMC = 24.9897... ainda é considerado peso 
-normal, apesar da tabela indicar uma faixa somente até 24.9) (34,999999999999... ainda é 
-Obesidade Grau I).
-
+PUCSP/1ºsem 2024 LIC-prática<br />
+Laboratório de Introdução à Computação - prof. Eli Banks<br />
+Atividade 02<br />
+Exercício individual, a ser entregue via ambiente Teams com o código:<br />
+XXXXX-Ativ02<br onde: XXXXX corresponde às letras iniciais do nome do aluno (usar o hífen “-“ como separação no código)<br />
+Implementar o seguinte programa codificado em linguagem C usando apenas a tela texto:<br />
+IMC é a sigla para Índice de Massa Corporal, que é um cálculo que serve para avaliar se a pessoa está dentro do seu peso ideal em relação à altura. Assim, de acordo com o valor do resultado de IMC, a pessoa pode saber se está dentro do peso ideal, acima ou abaixo do peso desejado. Estar dentro do peso certo é importante porque estar acima ou abaixo desse peso pode influenciar bastante a saúde, aumentando o risco de doenças como desnutrição quando se está abaixo do peso, e AVC ou infarto, quando se está acima do peso. O cálculo do IMC deve ser feito usando a seguinte fórmula matemática: Peso ÷ (altura x altura). A tabela abaixo mostra a classificação da pessoa a partir do resultado do IMC. Descubra e aplique as unidades de medida mais apropriadas para o caso: (metro, cm, kg, mg, etc.) orientando assim o usuário final.<br />
+Objetivo: Desenvolver um programa em C para determinar se uma pessoa está com peso baixo, normal ou sobrepeso. O programa deverá receber do usuário a seu peso atual e, em seguida, apresentar a sua classificação conforme a tabela IMC. <br />
+Importante: o programa deverá ser reciclável, isto é: deve ficar solicitando repetidamente o peso da pessoa, finalizando somente quando o peso informado for zero.<br />
+ATENÇÃO: A classificação das faixas de IMC conforme a tabela acima não estámatematicamente bem explicitada! Supere isso comparando os índices calculados com os limites iniciais de classificação. (por exemplo: IMC = 24.9897... ainda é considerado peso normal, apesar da tabela indicar uma faixa somente até 24.9) (34,999999999999... ainda é Obesidade Grau I).<br />
