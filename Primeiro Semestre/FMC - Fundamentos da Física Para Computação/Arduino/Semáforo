@@ -1,4 +1,4 @@
-// Nesta parte a funÃ§Ã£o setup acontece apenas uma vez ao inicializar a placa.
+// Nesta parte a função setup acontece apenas uma vez ao inicializar a placa.
 
 int LedVermelho = 11;
 int LedAmarelo = 12;
