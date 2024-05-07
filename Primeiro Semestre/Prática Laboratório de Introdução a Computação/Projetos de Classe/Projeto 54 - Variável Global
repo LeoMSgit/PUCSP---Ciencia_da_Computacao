@@ -3,6 +3,8 @@
 //Preencher com números em ordem crescente de 10 em 10
 //Apresentar na tela a tabela
 
+//Variáveis Globais Ocupam muito espaço e devem ser usadas com juízo e cuidado, porém permitem uma alteração fácil de todas as varíaveis de um código
+
 #include <stdio.h>
 int QTLINHA = 10;
 int QTCOLUNA = 20;
