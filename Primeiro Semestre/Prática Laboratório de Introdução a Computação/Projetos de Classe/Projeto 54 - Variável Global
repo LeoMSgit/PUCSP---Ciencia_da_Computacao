@@ -1,0 +1,26 @@
+//Matrizes Bidimensionais com Variáveis Globais
+//Formular uma tabela de 10 linhas e 20 colunas
+//Preencher com números em ordem crescente de 10 em 10
+//Apresentar na tela a tabela
+
+#include <stdio.h>
+int QTLINHA = 10;
+int QTCOLUNA = 20;
+
+int main ()
+	{int Mat[5][10];
+	int i, j;
+	int n = 1;
+	
+	for (i=0; i < 5; i++)
+		for (j=0; j < 10; j++)
+			{Mat[i][j] = n*10;
+			n++;
+			}
+	
+	for (i=0; i < 5; i++)
+		{for (j=0; j < 10; j++)
+			printf("%5d", Mat[i][j]);
+		printf("\n");
+		}
+	}
