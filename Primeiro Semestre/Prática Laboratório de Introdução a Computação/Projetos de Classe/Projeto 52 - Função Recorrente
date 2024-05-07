@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int Fatorial(int n);
+
+int main() {
+    int i;
+    printf("Digite um numero inteiro (ate 12) ou digite 0 para sair:\n");
+    scanf("%d", &i);
+    
+    while (i != 0) {
+        if (i < 0 || i > 12) {
+            printf("ERRO: Numero deve ser entre 1 e 12\n");
+        } else {
+            for (int j = 0; j <= i; j++) {
+                printf("Fatorial de %d: %d\n", j, Fatorial(j));
+            }
+        }
+        printf("\nDigite um numero inteiro (ate 12) ou digite 0 para sair:\n");
+        scanf("%d", &i);
+    }
+    
+    return 0;
+}
+
+int Fatorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * Fatorial(n - 1);
+    }
+}
