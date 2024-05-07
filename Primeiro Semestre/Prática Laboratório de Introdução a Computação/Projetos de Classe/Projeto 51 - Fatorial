@@ -1,0 +1,28 @@
+//Função Fatorial(N)
+//Formular um programa que calcula o resultado de um fatorial até n=12
+//Fatorial de N: N! = N1*N-1*N-2*...*1
+//0! = 1
+//Função Precisa Ser Reciclavel (Sair após Digitar 0)
+
+#include <stdio.h>
+int Fatorial(int n){
+	int fat = 1;
+	for (int i = n; i >= 1; i--)
+		fat = fat*i;
+	return fat;
+}
+int main (){
+	int N;
+	do{
+		printf("\nDigite um numero inteiro (até 12) ou Digite 0 para SAIR\n");
+		scanf("%d", &N);
+		if (N == 0);
+			break;
+		if (N < 0 || N > 12){
+			printf("ERRO: Número deve ser entre 1 e 12\n");
+			continue;
+		}
+		printf("Fatorial de %d = %d\n", N, Fatorial(N));
+	}while (N != 0);
+}
+	
