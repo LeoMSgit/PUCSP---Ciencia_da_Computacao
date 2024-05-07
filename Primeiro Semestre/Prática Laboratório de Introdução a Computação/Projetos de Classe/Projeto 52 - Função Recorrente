@@ -1,3 +1,10 @@
+//Função Recorrente, ela continua até que se cumpra um parâmetro
+//Formular um programa que calcula o resultado de um fatorial até n=12
+//A Função deve mostrar o valor do fatorial de todos os numeros até o N digitado
+//Fatorial de N: N! = N1*N-1*N-2*...*1
+//0! = 1
+//Função Precisa Ser Reciclavel (Sair após Digitar 0)
+
 #include <stdio.h>
 
 int Fatorial(int n);
