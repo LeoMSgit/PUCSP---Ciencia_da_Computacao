@@ -10,9 +10,14 @@ void loop() {
  Serial.println();
  delay(2000);
  float temp=(voltage)*100;
- Serial.print("Temperatura = ");
+ Serial.print("Temperatura Celsius = ");
  Serial.print(temp);
- Serial.print(" @C");
+ Serial.print("@C");
+ Serial.println();
+ float TF = (temp)*1.8 + 32;
+ Serial.print("Temperatura Fahrenheit = ");
+ Serial.print(TF);
+ Serial.print("@F");
  Serial.println();
  delay(2000);
 }
