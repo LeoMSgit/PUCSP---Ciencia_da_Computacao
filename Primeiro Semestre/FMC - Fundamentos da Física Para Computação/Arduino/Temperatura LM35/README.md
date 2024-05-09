@@ -4,7 +4,7 @@ R: O sensor LM 35 mede a temperatura atráves da resistencia variação de sua r
 <br />
 B) Construir uma tabela com os valores de temperatura e de tensão de saída do sensor LM 35.<br />
 R: | Temperatura (ºC)  | Resistência (V) |<br />
-   | :-------------:   | :-------------: |<br />
+   | -------------     | -------------   |<br />
    | 29.33             | 0.29            |<br />
    | 29.1              | 0.3             |<br />
    | 30.3              | 0.3             |<br />
