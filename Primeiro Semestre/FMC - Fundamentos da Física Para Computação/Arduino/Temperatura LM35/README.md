@@ -17,3 +17,4 @@ R: Feito <br />
 <br />
 D) Faça ascender um LED vermelho quando a temperatura estiver acima de +30°C . Ligue o LED com um resistor<br />
 R: Feito
+![alt text](blob:https://web.whatsapp.com/200911e4-11fd-459e-9a53-e8c76592f23d)
