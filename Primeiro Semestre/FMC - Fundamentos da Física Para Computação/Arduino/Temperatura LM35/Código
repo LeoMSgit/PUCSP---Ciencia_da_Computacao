@@ -1,0 +1,18 @@
+void setup() {
+Serial.begin(9600);
+}
+void loop() {
+ int sensorValue = analogRead(A2);
+ float voltage = sensorValue * (5.0 / 1023.0);
+ Serial.print("Tensao = ");
+ Serial.print(voltage);
+ Serial.print(" V");
+ Serial.println();
+ delay(2000);
+ float temp=(voltage)*100;
+ Serial.print("Temperatura = ");
+ Serial.print(temp);
+ Serial.print(" @C");
+ Serial.println();
+ delay(2000);
+}
