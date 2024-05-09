@@ -1,35 +1,104 @@
 #include <stdio.h>
 
-int Dia;
-int Mes;
-int Ano;
-int Menu;
+//VERIFICAÇÃO ANO BISSEXTO
+int fAnoBissexto(int a) {
+    if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0)) {
+        return 1; // BISSEXTO
+    } else {
+        return 0; // NÃO BISSEXTO
+    }
+}
 
-int main() {
-    // MENU
+// VERIFICAÇÃO DE DATA VÁLIDA
+//   Retorna 0 se a data for válida
+//   Retorna 1 se o dia for inválido
+//   Retorna 2 se o mês for inválido
+//   Retorna 3 se o ano for inválido
+int fDataValida(int d, int m, int a) {
+    // VERIFICAÇÃO ANO VALIDO
+    if (a < 1) {
+        return 3;
+    }
+
+    // VERIFICAÇÃO MES VALIDO
+    if (m < 1 || m > 12) {
+        return 2;
+    }
+
+    // VERIFICAÇÃO DIAS MAXIMOS NO MES
+    int max_dias;
+    switch (m) {
+        case 2:
+        // VERIFICAÇÃO BISSEXTO
+        if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0)) {
+            max_dias = 29; // BISSEXTO
+        } else {
+            max_dias = 28; // NÃO BISSEXTO
+        }
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        max_dias = 30;
+        break;
+    default:
+        max_dias = 31;
+        break;
+    }
+
+    // VERIFICAÇÃO DIA VALIDOS
+    if (d < 1 || d > max_dias) {
+        return 1;
+    }
+
+    // VERIFICAÇÃO FINAL
+    return 0; // DATA FINAL É VALIDA
+}
+
+
+    int Dia, Mes, Ano, Menu;
+
     do {
+        // Menu de opções
         printf("\nBEM VINDO A CALCULADORA DE DATAS\n");
-        printf("\n1 - Iniciar; 2 - Sair: \n");
+        printf("1 - Iniciar; 2 - Sair\n");
         scanf("%d", &Menu);
-        
+
         if (Menu == 1) {
-            // INPUT DATA MES ANO
             do {
-                printf("Digite o dia: ");
-                scanf("%d", &Dia);
-                if (Dia < 1 || Dia > 31)
-                    printf("ERRO: Dia inválido\n");
-            } while (Dia < 1 || Dia > 31);
+                // Input do ano
+                printf("Digite o ANO: ");
+                scanf("%d", &Ano);
+                if (Ano < 1) {
+                    printf("ERRO: Ano inválido\n");
+                } else {
+                    printf("O ano %d %s Bissexto\n", Ano, (fAnoBissexto(Ano)) ? "é" : "não é");
+                }
+            } while (Ano < 1);
 
             do {
-                printf("Digite o mes: ");
+                // Input do mês
+                printf("Digite o MES: ");
                 scanf("%d", &Mes);
-                if (Mes < 1 || Mes > 12)
+                if (Mes < 1 || Mes > 12) {
                     printf("ERRO: Mês inválido\n");
+                }
             } while (Mes < 1 || Mes > 12);
 
-            printf("Digite o ano: ");
-            scanf("%d", &Ano);
+            // Verifica o número máximo de dias no mês para o ano fornecido
+            int max_dias = fDataValida(1, Mes, Ano);
+
+            do {
+                // Input do dia
+                printf("Digite o DIA: ");
+                scanf("%d", &Dia);
+                if (Dia < 1 || Dia > max_dias) {
+                    printf("ERRO: Dia inválido para este mês\n");
+                }
+            } while (Dia < 1 || Dia > max_dias);
+
+            // Exibe a data inserida
             printf("Data Inserida: %02d/%02d/%d\n", Dia, Mes, Ano);
         } else if (Menu != 2) {
             printf("ERRO: Opção inválida. Escolha 1 para Iniciar ou 2 para Sair.\n");
@@ -37,5 +106,4 @@ int main() {
     } while (Menu != 2);
 
     printf("SAINDO...\n");
-    break;
 }
