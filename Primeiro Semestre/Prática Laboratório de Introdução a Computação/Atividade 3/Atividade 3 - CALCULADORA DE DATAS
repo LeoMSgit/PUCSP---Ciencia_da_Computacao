@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int Dia;
+int Mes;
+int Ano;
+int Menu;
+
+int main() {
+    // MENU
+    do {
+        printf("\nBEM VINDO A CALCULADORA DE DATAS\n");
+        printf("\n1 - Iniciar; 2 - Sair: \n");
+        scanf("%d", &Menu);
+        
+        if (Menu == 1) {
+            // INPUT DATA MES ANO
+            do {
+                printf("Digite o dia: ");
+                scanf("%d", &Dia);
+                if (Dia < 1 || Dia > 31)
+                    printf("ERRO: Dia inválido\n");
+            } while (Dia < 1 || Dia > 31);
+
+            do {
+                printf("Digite o mes: ");
+                scanf("%d", &Mes);
+                if (Mes < 1 || Mes > 12)
+                    printf("ERRO: Mês inválido\n");
+            } while (Mes < 1 || Mes > 12);
+
+            printf("Digite o ano: ");
+            scanf("%d", &Ano);
+            printf("Data Inserida: %02d/%02d/%d\n", Dia, Mes, Ano);
+        } else if (Menu != 2) {
+            printf("ERRO: Opção inválida. Escolha 1 para Iniciar ou 2 para Sair.\n");
+        }
+    } while (Menu != 2);
+
+    printf("SAINDO...\n");
+    break;
+}
