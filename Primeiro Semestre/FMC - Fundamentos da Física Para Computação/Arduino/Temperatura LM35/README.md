@@ -11,5 +11,9 @@ R: | Temperatura (ºC)  | Resistência (V) |<br />
    | 31.28             | 0.31            |<br />
    | 32.26             | 0.32            |<br />
    | 31.26             | 0.31            |<br />
+   <br />
 C) Alterar o programa para mostrar a temperatura em graus Fahrenheit.<br />
+R: Feito <br />
+<br />
 D) Faça ascender um LED vermelho quando a temperatura estiver acima de +30°C . Ligue o LED com um resistor<br />
+R: Feito
