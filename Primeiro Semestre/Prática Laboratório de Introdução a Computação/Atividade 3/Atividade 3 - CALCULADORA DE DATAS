@@ -6,7 +6,7 @@ int fAnoBissexto(int a); //VERIFICAÇÃO ANO BISSEXTO
 int fDataValida(int a, int m, int d); // VERIFICAÇÃO DE DATA VÁLIDA
 int Menu = 0; //VARIAVEL MENU
 int fMenu(); //MENU
-int max_dias; //VARIAVEL MAXIMO DIAS NO MES
+int max_dias;
 
 // FUNÇÃO MENU
 int fMenu() {
@@ -33,7 +33,7 @@ int fAnoBissexto(int a){
 //   Retorna 3 se o ano for inválido
 int fDataValida(int a, int m, int d) {
     // VERIFICAÇÃO ANO VALIDO
-    if (a < 1) {
+    if (a < 1600 || a > 5000) {
         return 3;
     }
 
@@ -82,32 +82,30 @@ int main (){
         if (Menu == 1) {
             do {
                 // INPUT ANO
-                printf("Digite o ANO: ");
+                printf("Digite o ANO (Entre 1600 e 5000): ");
                 scanf("%d", &a);
-                if (a < 1) {
+                if (fDataValida(a, m, d) == 3) {
                     printf("ERRO: Ano invalido\n");
                 } else if (fAnoBissexto(a) == 1){
                 	printf("O ano %d e Bissexto\n", a);
                 } else 
                 	printf("O ano %d nao e Bissexto\n", a);
-            } while (a < 1);
+            } while (a < 1600 || a > 5000);
             do {
                 // INPUT MES
                 printf("Digite o MES: ");
                 scanf("%d", &m);
-                if (m < 1 || m > 12) {
+                if (fDataValida(a, m, d) == 2) {
                     printf("ERRO: Mes invalido\n");
                 }
             } while (m < 1 || m > 12);
 
             // MAXIMO DE DIAS NO ANO
-            fDataValida(a, m, d);
-
             do {
                 // INPUT DIA
                 printf("Digite o DIA: ");
                 scanf("%d", &d);
-                if (d < 1 || d > max_dias) {
+                if (fDataValida(a, m, d) == 1) {
                     printf("ERRO: Dia invalido para este mes\n");
                 }
             } while (d < 1 || d > max_dias);
