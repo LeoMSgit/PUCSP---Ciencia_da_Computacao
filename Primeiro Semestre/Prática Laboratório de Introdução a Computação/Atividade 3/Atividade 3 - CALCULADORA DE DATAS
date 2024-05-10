@@ -1,22 +1,20 @@
 #include <stdio.h>
-int a; //VARIAVEL ANO
-int m; //VARIAVEL MES
-int d; //VARIAVEL DIA
-int fAnoBissexto(int a); //VERIFICAÇÃO ANO BISSEXTO
+
+int fAnoBissexto(int a); // VERIFICAÇÃO ANO BISSEXTO
 int fDataValida(int a, int m, int d); // VERIFICAÇÃO DE DATA VÁLIDA
-int Menu = 0; //VARIAVEL MENU
-int fMenu(); //MENU
-int max_dias; // VARIAVEL DIAS NO MES
-int fDiasInicioAno(int d, int m, int a); //INICIO DO ANO
-int fDiasFimAno(int d, int m, int a); //FIM DO ANO
+int fMenu(); // MENU
+int fDiasInicioAno(int d, int m, int a); // INICIO DO ANO
+int fDiasFimAno(int a, int soma); // FIM DO ANO
+int max_dias; // VARIAVEL MAXIMO DIAS NO MES
 
 // FUNÇÃO MENU
 int fMenu() {
+    int menu = 0; // VARIAVEL MENU
     printf("\nBEM VINDO A CALCULADORA DE DATAS\n");
     printf("1 - Iniciar; 2 - Sair\n");
-    scanf("%d", &Menu);
-
-    return Menu;
+    scanf("%d", &menu);
+    
+    return menu;
 }
 
 // FUNÇÃO VERIFICAÇÃO ANO BISSEXTO
@@ -34,116 +32,122 @@ int fAnoBissexto(int a){
 //   Retorna 2 se o mês for inválido
 //   Retorna 3 se o ano for inválido
 int fDataValida(int a, int m, int d) {
-    // VERIFICAÇÃO ANO VALIDO
+    // VERIFICAÇÃO ANO VÁLIDO
     if (a < 1600 || a > 5000) {
         return 3;
     }
 
-    // VERIFICAÇÃO MES VALIDO
+    // VERIFICAÇÃO MÊS VÁLIDO
     if (m < 1 || m > 12) {
         return 2;
     }
 
-    // VERIFICAÇÃO DIAS MAXIMOS NO MES
+    // VERIFICAÇÃO MÁXIMO DE DIAS NO MÊS
     switch (m) {
         case 2:
-        // VERIFICAÇÃO BISSEXTO
-        if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0)) {
-            max_dias = 29; // BISSEXTO
-        } else {
-            max_dias = 28; // NÃO BISSEXTO
-        }
-        break;
-    case 4:
-    case 6:
-    case 9:
-    case 11:
-        max_dias = 30;
-        break;
-    default:
-        max_dias = 31;
-        break;
+            // VERIFICAÇÃO BISSEXTO
+            if (fAnoBissexto(a)) {
+                max_dias = 29;}
+            else {
+                max_dias = 28;
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            max_dias = 30;
+            break;
+        default:
+            max_dias = 31;
+            break;
     }
 
-    // VERIFICAÇÃO DIA VALIDOS
+    // VERIFICAÇÃO DIA VÁLIDO
     if (d < 1 || d > max_dias) {
         return 1;
     }
 
-    // VERIFICAÇÃO FINAL
-    return 0; // DATA FINAL É VALIDA
+    // DATA VÁLIDA
+    return 0;
 }
-    
-// FUNÇÃO INICIO DO ANO
-int fDiasInicioAno(int d, int m){
-   int diasCorridos[12] = {31, 28, 31, 31, 31, 30, 31, 31, 30, 31, 30, 31}; // ANO NÃO BISSEXTO
-    if (fAnoBissexto == 1)
-        diasCorridos[1] = 29;                                              // ANO BISSEXTO
-    int soma = 0;
-    for (int i = 0; i < (m-1);) {                                            // DIAS ATÉ O MES FIM DO MES ANTERIOR
-        soma += diasCorridos[i];    
-        i++;
-    }
-    soma += d;                                                              // DIAS DO MES ATUAL
-    
-    printf("Desde o inicio do ano até o dia de hoje se passaram %d dias\n", soma);
-}
-
 // FUNÇÃO FIM DO ANO
-int fDiasFimAno(int d, int m, int a);
+    int fDiasFimAno(int a, int soma) {
+    if (fAnoBissexto(a)) {
+        soma = (366 - soma);
+    } else {
+        soma = (365 - soma);
+        }
     
-// CORPO DO PROGRAMA    
-int main (){
-    do {
-        // MENU
-        fMenu();
+        printf("Até o fim do ano inserido restam %d dias\n", soma);
+    }   
+// FUNÇÃO INÍCIO DO ANO (Dentro da Função Fim de Ano, a fim de utilizar o mesmo valor da variavel soma, sem torná-la global)
+int fDiasInicioAno(int d, int m, int a){
+    int soma;
+    int diasCorridos[12] = {31, 28, 31, 31, 31, 30, 31, 31, 30, 31, 30, 31};// ANO NÃO BISSEXTO
+    if (fAnoBissexto(a)) {
+        diasCorridos[1] = 29;                                               // ANO BISSEXTO
+    }
+    soma = d-1;   // DIAS DO MÊS ATUAL E CORREÇÃO
+    for (int i = 0; i < (m - 1); i++) { // TOTAL DE DIAS ATÉ O FIM DO MÊS ANTERIOR
+        soma += diasCorridos[i];
+    }
+    printf("Do inicio do ano inserido até o dia inserido se passaram %d dias\n", soma);
+    
+    // FUNÇÃO FIM DO ANO
+    fDiasFimAno( a, soma);
+}
 
-        if (Menu == 1) {
-            do {
-                // INPUT ANO
+
+// CORPO DO PROGRAMA    
+int main() {
+    int a, m, d;
+    int menu;
+    
+    do {
+        menu = fMenu();
+        // MENU
+        if (menu == 1) {
+            do {    // INPUT ANO
                 printf("Digite o ANO (Entre 1600 e 5000): ");
                 scanf("%d", &a);
                 if (fDataValida(a, m, d) == 3) {
-                    printf("ERRO: Ano invalido\n");
-                } else if (fAnoBissexto(a) == 1){
-                	printf("O ano %d e Bissexto\n", a);
-                } else 
-                	printf("O ano %d nao e Bissexto\n", a);
+                    printf("\nERRO: Ano inválido\n");
+                } else if (fAnoBissexto(a) == 1) {
+                    printf("\nO ano %d é Bissexto\n", a);
+                } else {
+                    printf("\nO ano %d não é Bissexto\n", a);
+                }
             } while (a < 1600 || a > 5000);
-            do {
-                // INPUT MES
-                printf("Digite o MES: ");
+
+            do {    // INPUT MÊS
+                printf("Digite o MÊS: ");
                 scanf("%d", &m);
                 if (fDataValida(a, m, d) == 2) {
-                    printf("ERRO: Mes invalido\n");
+                    printf("\nERRO: Mês inválido\n");
                 }
             } while (m < 1 || m > 12);
 
-            // MAXIMO DE DIAS NO ANO
-            do {
-                // INPUT DIA
+            // MÁXIMO DE DIAS NO MÊS
+            do {    // INPUT DIA
                 printf("Digite o DIA: ");
                 scanf("%d", &d);
                 if (fDataValida(a, m, d) == 1) {
-                    printf("ERRO: Dia invalido para este mes\n");
+                    printf("\nERRO: Dia inválido para este mes\n");
                 }
             } while (d < 1 || d > max_dias);
 
             // DATA INSERIDA
-            printf("Data Inserida: %02d/%02d/%d\n", d, m, a);
-        } else if (Menu != 2) {
-            printf("ERRO: Opcao invalida. Escolha 1 para Iniciar ou 2 para Sair.\n");
-        }
-        
-            // DIAS DO COMEÇO DO ANO
-            fDiasInicioAno(int d, int m);
-            
-            // DIAS FIM DO ANO
-            fDiasFimAno(int d, int m);
-            
-            
-    } while (Menu != 2 && Menu !=0);
+            printf("\nData Inserida: %02d/%02d/%d\n", d, m, a);
 
-    printf("SAINDO...\n");
-}
+            // DIAS DO COMEÇO DO ANO e FIM DO ANO
+            fDiasInicioAno(d, m, a);
+            
+            
+        } else if (menu != 1 && menu != 2) {
+            printf("\nERRO: Opção inválida. Escolha 1 para Iniciar ou 2 para Sair.\n");
+        }
+    }while  (menu != 2); // LOOP ENQUANTO A OPÇÃO 2 NÃO É ESCOLHIDA
+        
+    printf("\nSAINDO...\n");
 }
