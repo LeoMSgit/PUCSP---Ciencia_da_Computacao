@@ -6,7 +6,7 @@ int fAnoBissexto(int a); //VERIFICAÇÃO ANO BISSEXTO
 int fDataValida(int a, int m, int d); // VERIFICAÇÃO DE DATA VÁLIDA
 int Menu = 0; //VARIAVEL MENU
 int fMenu(); //MENU
-int max_dias;
+int max_dias; //VARIAVEL MAXIMO DIAS NO MES
 
 // FUNÇÃO MENU
 int fMenu() {
