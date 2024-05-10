@@ -140,7 +140,8 @@ int main() {
             fDiasInicioAno(d, m, a);
             
         } else if (menu != 1 && menu != 2) {
-            printf("\nERRO: Opção inválida. Escolha 1 para Iniciar ou 2 para Sair.\n");
+            printf("ERRO: Opção inválida. Escolha 1 para Iniciar ou 2 para Sair.\n");
+            printf("----------------------------------------------------------------");
         }
     } while (menu != 2); // LOOP ENQUANTO A OPÇÃO 2 NÃO É ESCOLHIDA
         
