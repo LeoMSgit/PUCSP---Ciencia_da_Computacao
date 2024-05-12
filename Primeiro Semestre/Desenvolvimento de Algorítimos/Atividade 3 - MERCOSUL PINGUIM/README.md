@@ -19,20 +19,20 @@ Caso a divisão resulte em RESTO DIFERENTE de 0, podemos “devolver” um agrup
 
 4) Corpo do Algorítimo (Fórumla Geral)
 
-calcularPinguins ( )
-leia(N);
-R ← 0; P ← 0; Q ← 0; S ← 1; i = 0;
-	
-P ← N DIV 5;
-R ← N MOD 5;
+calcularPinguins ( )<br />
+leia(N);<br />
+R ← 0; P ← 0; Q ← 0; S ← 1; i = 0;<br />
+<br />
+P ← N DIV 5;<br />
+R ← N MOD 5;<br />
+<br />
+enquanto (R ≠ 0) faça<br />
+  enquanto (R < 3) faça<br />
+    P ← P - 1;<br />
+    R ← R + 5;<br />
+    i ← i +1;<br />
 
-enquanto (R ≠ 0) faça
-  enquanto (R < 3) faça
-    P ← P - 1;
-    R ← R + 5;
-    i ← i +1;
+Q ← (R DIV 3) + i;<br />
+R ← R MOD 3;<br />
 
-Q ← (R DIV 3) + i;
-R ← R MOD 3;
-
-imprima (P, Q);
+imprima (P, Q);<br />
