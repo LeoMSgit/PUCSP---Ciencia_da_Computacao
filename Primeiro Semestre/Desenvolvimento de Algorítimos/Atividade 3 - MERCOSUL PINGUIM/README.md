@@ -7,15 +7,15 @@ Caso a divisão resulte em RESTO DIFERENTE de 0, podemos “devolver” um agrup
 
 3) Análise do Problema<br />
 • Análise dos Dados
-- Os dados processados são números naturais maiores, pois se tratam de valores monetários
+ - Os dados processados são números naturais maiores, pois se tratam de valores monetários
 • Dados de Entrada
-- A entrada é composta por apenas um valor numérico natural, o valor que desejamos dividir por 5 e 3. O valor da entrada deve ser maior ou igual a 8, uma vez que o enunciado menciona que nada custa meno de P$ 8
+ - A entrada é composta por apenas um valor numérico natural, o valor que desejamos dividir por 5 e 3. O valor da entrada deve ser maior ou igual a 8, uma vez que o enunciado menciona que nada custa meno de P$ 8
 • Dados de Saída
-- A saída é composta por dois valores numéricos naturais, um correspondente ao total de notas de 5 utilizadas para formar o valor inserido na entrada e outro o de notas de 3 utilizadas para formar o valor inserido na entrada
+ - A saída é composta por dois valores numéricos naturais, um correspondente ao total de notas de 5 utilizadas para formar o valor inserido na entrada e outro o de notas de 3 utilizadas para formar o valor inserido na entrada
 • Variável de Entrada
-- N (natural)
+ - N (natural)
 • Variáveis de Saída
-- P (natural, representando a quantidade de notas P$ 5) e Q (natural, representando a quantidade de notas P$ 3)
+ - P (natural, representando a quantidade de notas P$ 5) e Q (natural, representando a quantidade de notas P$ 3)
 
 4) Corpo do Algorítimo (Fórumla Geral)<br />
 
