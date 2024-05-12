@@ -21,7 +21,7 @@ Caso a divisão resulte em RESTO DIFERENTE de 0, podemos “devolver” um agrup
 
 calcularPinguins ( )<br />
 &ensp;leia(N);<br />
-&ensp;R ← 0; P ← 0; Q ← 0; S ← 1; i = 0;<br />
+&ensp;R ← 0; P ← 0; Q ← 0; S ← 1; i ← 0;<br />
 <br />
 &ensp;P ← N DIV 5;<br />
 &ensp;R ← N MOD 5;<br />
