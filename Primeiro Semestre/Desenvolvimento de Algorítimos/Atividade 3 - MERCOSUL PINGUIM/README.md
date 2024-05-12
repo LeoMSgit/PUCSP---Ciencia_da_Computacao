@@ -1,3 +1,4 @@
+<br />
 1) Objetivo<br />
 Desenvolver um Algorítimo que calcule o menor numero de notas de P$ 5 e P$ 3, que são necessárias para compor um valor N.<br />
 <br />
