@@ -3,8 +3,9 @@
 Desenvolver um Algorítimo que calcule o menor numero de notas de P$ 5 e P$ 3, que são necessárias para compor um valor N.<br />
 <br />
 2) Raciocínio Lógico<br />
-Para verificar-se qual o numero mínimo de notas de P$ 5 e P$ 3, devemos dividir o valor desejado N primeiramente por 5, pois esse é o maior valor das notas de P$, repentido o processo agora com o QUOCIENTE até encontrarmos um caso em que o RESTO seja DIFERENTE de 0. Nesse momento devemos trocamos o DIVISOR da equação por 3 e repetir o processo de divisões sucessivas até o RESTO ser igual a 0 E o QUOCIENTE for MENOR do que 3. <br />
-Caso a divisão resulte em RESTO DIFERENTE de 0, podemos “devolver” um agrupamento de 5 unidades ao REDUZIR em 1 o número de notas de P$ 5 encontradas e ADICIONAR 5 ao valor do DIVIDENDO, se ainda não for suficiente para que o RESTO seja DIFENTE de 0, repetimos o processo até encontrarmos um valor que satisfaça essa condição.
+Para verificar-se qual o numero mínimo de notas de P$ 5 e P$ 3, devemos dividir o valor desejado N primeiramente por 5, pois esse é o maior valor das notas de P$. Após essa divisão devemos trocamos o DIVISOR da equação por 3 e o DIVIDENDO pelo valor do RESTO da equação anterior até o RESTO ser igual a 0.<br />
+Caso essa divisão resulte em RESTO DIFERENTE de 0, podemos “devolver” um agrupamento de 5 unidades ao REDUZIR em 1 o número de notas de P$ 5 encontradas e ADICIONAR 5 ao valor do DIVIDENDO, se ainda não for suficiente para que o RESTO seja DIFENTE de 0, repetimos o processo até encontrarmos um valor que satisfaça essa condição.
+<br />
 <br />
 3) Análise do Problema<br />
 • Análise dos Dados<br />
