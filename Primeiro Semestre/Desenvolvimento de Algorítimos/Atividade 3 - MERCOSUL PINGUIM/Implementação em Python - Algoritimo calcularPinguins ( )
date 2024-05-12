@@ -13,7 +13,7 @@ def calcular_pinguins(N):
         Q = (R // 3) + i
         R = R % 3
 
-    print(f"P = {P}, Q = {Q}")
+    print("P = {}, Q = {}".format(P, Q))
 
 def main():
     N = int(input("Digite um valor para N: "))
