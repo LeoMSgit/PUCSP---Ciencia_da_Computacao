@@ -41,18 +41,6 @@ int main() {
         printf("\nNome:");
         gets(aluno.nome);
 
-        // Remove o newline (\n) do final da string capturada pelo fgets
-        size_t len = 0;
-        while (aluno.nome[len] != '\0' && aluno.nome[len] != '\n') {
-            len++;
-        }
-        if (aluno.nome[len] == '\n') {
-            aluno.nome[len] = '\0';
-        }
-
-        if (aluno.nome[0] == '\0') {
-            break;  // Sai do loop se o usuário pressionar apenas Enter
-        }
 
         printf("\nSexo: ");
         scanf(" %c", &aluno.sexo);  // Note o espaço antes de %c para ignorar espaços em branco
