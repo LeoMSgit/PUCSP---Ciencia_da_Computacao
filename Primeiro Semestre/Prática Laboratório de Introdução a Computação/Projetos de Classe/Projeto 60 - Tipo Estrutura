@@ -36,4 +36,13 @@ struct staluno aluno; 			// cria a variável "aluno" do tipo "Estrutura". Essa v
 	
 	fClear();
 	}
+}							
+
+void fAluno(char n[40], char s, int i, float md){
+	printf("\n------------------------------------------------------------------------------------\n");
+	printf("%s", n);
+	printf("%tSexo: %c\t\t", s);
+	printf("%d, anos\t\t", i);
+	printf("Media: %4.1f\n");
+	printf("\n------------------------------------------------------------------------------------\n");
 }
