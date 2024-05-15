@@ -1,3 +1,9 @@
+//Variável Tipo Estrutura
+
+//Solicitar as seguintes informações de um aluno:
+//Nome (String), Sexo (char), Idade (int), Média (float)
+//Criar variaveis para receber todas esses tipos 
+
 #include <stdio.h>
 
 void fAluno(char n[40], char s, int i, float md);
