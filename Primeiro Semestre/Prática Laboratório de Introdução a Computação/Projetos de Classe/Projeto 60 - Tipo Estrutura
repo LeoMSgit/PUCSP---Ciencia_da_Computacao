@@ -11,10 +11,10 @@ void fClear();
 
 void fAluno(char n[40], char s, int i, float md) {
     printf("\n------------------------------------------------------------------------------------\n");
-    printf("Nome: %s\n", n);
-    printf("Sexo: %c\n", s);
-    printf("Idade: %d anos\n", i);
-    printf("Media: %.1f\n", md);
+    printf("Nome: %s\t", n);
+    printf("\tSexo: %c\t\t", s);
+    printf("Idade: %d anos\t\t", i);
+    printf("Media: %4.1f\n", md);
     printf("------------------------------------------------------------------------------------\n");
 }
 
@@ -36,8 +36,10 @@ int main() {
     struct staluno aluno;
 
     while (1) {
-        printf("\nNome (Enter para SAIR): ");
-        fgets(aluno.nome, sizeof(aluno.nome), stdin);
+    	printf("\nEnter para SAIR\n");
+        printf("-------------------\n");
+        printf("\nNome:");
+        gets(aluno.nome);
 
         // Remove o newline (\n) do final da string capturada pelo fgets
         size_t len = 0;
@@ -66,6 +68,4 @@ int main() {
 
         fAluno(aluno.nome, aluno.sexo, aluno.idade, aluno.media);
     }
-
-    return 0;
 }
