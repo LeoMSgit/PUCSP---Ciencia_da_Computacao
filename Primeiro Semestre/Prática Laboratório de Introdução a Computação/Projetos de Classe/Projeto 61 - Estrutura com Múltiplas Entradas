@@ -1,0 +1,34 @@
+//Variável Tipo Estrutura com Múltiplas Entradas
+
+//Criar uma estrutura contendo os seguintes dados
+//Nome (String), Idade (int), Celular (String)
+//O grupo é de 4 individuos
+//Criar variaveis para receber todas esses tipos 
+
+#include <stdio.h>
+
+void fGrupo(struct stamigo am[4]);
+void fDados(char n[40], char c[12], int i);
+void fClear();
+
+void fDados(char n[40], char c[12], int i) {
+    printf("\n------------------------------------------------------------------------------------\n");
+    printf("Nome: %s\t", n);
+    printf("\tCelular: %s\t\t", c);
+    printf("Idade: %d anos\t\t", i);
+    printf("------------------------------------------------------------------------------------\n");
+}
+
+void fClear() {
+    char carac;
+    while ((carac = fgetc(stdin)) != EOF && carac != '\n') {
+        // Limpa o buffer
+    }
+}
+
+int main() {
+    struct stamigo am[4];  // Definição da estrutura
+    int i;
+    	for (i = 0; i < 4; i++);
+    	printf("\nNome: %d", i+1);
+    	gets(amigos[i].nome);
