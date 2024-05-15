@@ -1,54 +1,65 @@
-//Variável Tipo Estrutura
-
-//Solicitar as seguintes informações de um aluno:
-//Nome (String), Sexo (char), Idade (int), Média (float)
-//Criar variaveis para receber todas esses tipos 
-
 #include <stdio.h>
 
 void fAluno(char n[40], char s, int i, float md);
 void fClear();
 
-void fAluno(char n[40], char s, int i, float md){
-	printf("\n------------------------------------------------------------------------------------\n");
-	printf("%s", n);
-	printf("%tSexo: %c\t\t", s);
-	printf("%d, anos\t\t", i);
-	printf("Media: %4.1f\n");
-	printf("\n------------------------------------------------------------------------------------\n");
+void fAluno(char n[40], char s, int i, float md) {
+    printf("\n------------------------------------------------------------------------------------\n");
+    printf("Nome: %s\n", n);
+    printf("Sexo: %c\n", s);
+    printf("Idade: %d anos\n", i);
+    printf("Media: %.1f\n", md);
+    printf("------------------------------------------------------------------------------------\n");
 }
 
-void fClear(){
-	char carac;
-	while ((carac = fgetc(stdin)) != EOF && carac != '\n'){   // Enquanto a entrada de dados (stdin) for diferente do EndOfFile (finalizador de string) e diferente de espaço (\n) ele será ignorado
-	}
+void fClear() {
+    char carac;
+    while ((carac = fgetc(stdin)) != EOF && carac != '\n') {
+        // Limpa o buffer
+    }
 }
 
-int main (){
-	struct staluno{ 			//staluno é apenas o nome e a definição do escopo da estrutura  (não aloca espaço na memória)
-	char nome[40];
-	char sexo;
-	int idade;
-	float media;
-	};							// ou {} aluno; --- Desse modo não é necessário declarar a variável estrutura aluno na linha seguinte
-struct staluno aluno; 			// cria a variável "aluno" do tipo "Estrutura". Essa variável tem função de COMPORTAR  e CHAMAR OUTRAS VARIÁVEIS
-								// Aloca espaço na memória para a Estrutura aluno
-	
-	while(aluno.nome[0] != '\0') {
-	printf("\nNome: Enter para SAIR)");
-	printf("\nEnter para SAIR\n)");
-	printf("----------------------\n)");
-	gets(aluno.nome);			// Chamando a variável "nome" dentro da variável em forma de estrutura "aluno"
-	printf("\nSexo: ");	
-	scanf("%c", &aluno.sexo);
-	fClear();
-	printf("\nIdade: ");
-	scanf("%d", &aluno.idade);
-	printf("\nMedia: ");
-	scanf("%f", &aluno.media);
-	
-	fAluno(aluno.nome, aluno.sexo, aluno.idade, aluno.media);
-	
-	fClear();
-	}
+int main() {
+    struct staluno {  // Definição da estrutura
+        char nome[40];
+        char sexo;
+        int idade;
+        float media;
+    };
+
+    struct staluno aluno;
+
+    while (1) {
+        printf("\nNome (Enter para SAIR): ");
+        fgets(aluno.nome, sizeof(aluno.nome), stdin);
+
+        // Remove o newline (\n) do final da string capturada pelo fgets
+        size_t len = 0;
+        while (aluno.nome[len] != '\0' && aluno.nome[len] != '\n') {
+            len++;
+        }
+        if (aluno.nome[len] == '\n') {
+            aluno.nome[len] = '\0';
+        }
+
+        if (aluno.nome[0] == '\0') {
+            break;  // Sai do loop se o usuário pressionar apenas Enter
+        }
+
+        printf("\nSexo: ");
+        scanf(" %c", &aluno.sexo);  // Note o espaço antes de %c para ignorar espaços em branco
+        fClear();
+
+        printf("\nIdade: ");
+        scanf("%d", &aluno.idade);
+        fClear();
+
+        printf("\nMedia: ");
+        scanf("%f", &aluno.media);
+        fClear();
+
+        fAluno(aluno.nome, aluno.sexo, aluno.idade, aluno.media);
+    }
+
+    return 0;
 }
