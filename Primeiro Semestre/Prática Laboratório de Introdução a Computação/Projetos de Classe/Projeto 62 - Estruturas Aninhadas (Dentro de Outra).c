@@ -12,7 +12,7 @@ void fClear();
 void fDados(char n[40], char s, int i, char e[40], char m [20], char c [9]) {
     printf("\n------------------------------------------------------------------------------------\n");
     printf("Nome: %s\t\t", n);
-    printf("Sexo: %s\t\t", s);
+    printf("Sexo: %c\t\t", s);
     printf("Idade: %d anos\n", i);
     printf("Endereço: Rua %s, Municipio %s, CEP %s\t\t", e,m,c);
     printf("------------------------------------------------------------------------------------\n");
@@ -26,16 +26,17 @@ void fClear() {							// Descarta os caracteres do buffer de entrada
 
 int main() {
 	int i;
-	struct stendereco {  				// Definição da estrutura
+	struct stendereco {  				// Definição da estrutura ENDEREÇO
         char rua[40];
-        char municipio[12];
-        char CEP;
-    } staluno.enda;
+        char municipio[20];
+        char CEP[9];
+    };
 	
     struct staluno {  					// Definição da estrutura
         char nome[40];
         char sexo;
         int idade;
+        struct stendereco enda; 		// ANINHAMENTO da estrutura stendereco 
     } aluno;
 	
 
