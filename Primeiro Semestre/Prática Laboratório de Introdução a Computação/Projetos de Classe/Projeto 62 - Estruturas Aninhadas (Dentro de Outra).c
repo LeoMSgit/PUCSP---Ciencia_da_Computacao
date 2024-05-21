@@ -12,8 +12,9 @@ void fClear();
 void fDados(char n[40], char s, int i, char e[40], char m [20], char c [9]) {
     printf("\n------------------------------------------------------------------------------------\n");
     printf("Nome: %s\t\t", n);
-    printf(": %s\t\t", s);
+    printf("Sexo: %s\t\t", s);
     printf("Idade: %d anos\n", i);
+    printf("Endereço: Rua %s, Municipio %s, CEP %s\t\t", e,m,c);
     printf("------------------------------------------------------------------------------------\n");
 }
 
@@ -29,33 +30,46 @@ int main() {
         char rua[40];
         char municipio[12];
         char CEP;
-    } stendereco.a;
+    } staluno.enda;
 	
-    struct stamigo {  					// Definição da estrutura
+    struct staluno {  					// Definição da estrutura
         char nome[40];
-        char celular[12];
+        char sexo;
         int idade;
-    } amigo;
+    } aluno;
 	
 
 	while (i < 50){	
         printf("\nNome (Enter para SAIR): ");
-        gets(amigo.nome);
+        gets(aluno.nome);
 
         // Verifica se o nome é vazio (apenas Enter pressionado)
-        if (amigo.nome[0] == '\0') {	// Verificador fim da String
+        if (aluno.nome[0] == '\0') {	// Verificador fim da String
             break;  					// Sai do loop se o usuário pressionar apenas Enter
         }
 
-        printf("\nCelular: ");
-        scanf("%11s", amigo.celular);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        printf("\nSexo: ");
+        scanf("%s", aluno.sexo);  	// Limita a entrada a 11 caracteres mais o terminador nulo
         fClear(); 					  	// Limpa o buffer de entrada
 
-        printf("\nIdade: ");
-        scanf("%d", &amigo.idade);
+        printf("\nIdade: anos");
+        scanf("%d", &aluno.idade);
         fClear();  					   	// Limpa o buffer de entrada
+        
+        printf("\nRua: ");
+        scanf("%s", aluno.enda.rua);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        fClear();
+        
+        printf("\nMunicipio: ");
+        scanf("%s", aluno.enda.municipio);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        fClear();
+        
+        printf("\nCEP: ");
+        scanf("%s", aluno.enda.CEP);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        fClear();
+        
 		i = i+1;						// Contador i
-        fDados(amigo.nome, amigo.celular, amigo.idade);
+        fDados(aluno.nome, aluno.sexo, aluno.idade, aluno.enda.rua, aluno.enda.municipio, aluno.enda.CEP);
     }
     printf("\n--------------------------------");
     printf("\nSAINDO");
