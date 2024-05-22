@@ -14,7 +14,7 @@ void fDados(char n[40], char s, int i, char e[40], char m [20], char c [9]) {
     printf("Nome: %s\t\t", n);
     printf("Sexo: %c\t\t", s);
     printf("Idade: %d anos\n", i);
-    printf("Endereço: Rua %s, Municipio %s, CEP %s\t\t", e,m,c);
+    printf("Endereco: Rua: %s\tMunicipio: %s\tCEP: %s\n", e,m,c);
     printf("------------------------------------------------------------------------------------\n");
 }
 
@@ -50,23 +50,23 @@ int main() {
         }
 
         printf("\nSexo: ");
-        scanf("%s", aluno.sexo);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        scanf("%c", &aluno.sexo);  	// Limita a entrada a 11 caracteres mais o terminador nulo
         fClear(); 					  	// Limpa o buffer de entrada
 
-        printf("\nIdade: anos");
+        printf("\nIdade: ");
         scanf("%d", &aluno.idade);
         fClear();  					   	// Limpa o buffer de entrada
         
         printf("\nRua: ");
-        scanf("%s", aluno.enda.rua);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        scanf("%s", &aluno.enda.rua);  	// Limita a entrada a 11 caracteres mais o terminador nulo
         fClear();
         
         printf("\nMunicipio: ");
-        scanf("%s", aluno.enda.municipio);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        scanf("%s", &aluno.enda.municipio);  	// Limita a entrada a 11 caracteres mais o terminador nulo
         fClear();
         
         printf("\nCEP: ");
-        scanf("%s", aluno.enda.CEP);  	// Limita a entrada a 11 caracteres mais o terminador nulo
+        scanf("%s", &aluno.enda.CEP);  	// Limita a entrada a 11 caracteres mais o terminador nulo
         fClear();
         
 		i = i+1;						// Contador i
