@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+void fMostraMat(int m[20][14]);
+int fMenu();
+int i,j;
+int m[20][14];
+int n = 1;
+
+struct stendereco
+	{
+		char rua[100];
+	    char numero[5];
+			char bairro[40];
+            char cidade[40];
+			char uf[2];			
+	};
+
+
+struct stquarto
+	{
+		char status;
+		char nome[50];
+		char cpf[11];
+		char telefone[11];
+		struct stendereco ender;
+	};
+
+
+int main (){
+	
+struct stquarto hot[20][14];
+
+	int fMenu();
+	while (fMenu() == 1){
+	
+	for (i=0; i < 20; i++)
+		for (j=0; j < 14; j++)
+			{m[i][j] = n;
+			n++;
+			}
+    fMostraMat(m);
+    printf("\n------------------------------------\n");
+    printf("\nPressione 0 para voltar ao Menu Inicial\n");
+    scanf("%d", fMenu);
+    
+}
+}
+
+//IMPRIMIR MATRIZ (MAPA)	
+void fMostraMat(int m[20][14]) {		
+    for (i = 0; i < 20; i++) {
+        for (j = 0; j < 14; j++)
+            printf("%5d", m[i][j]);
+        printf("\n");					
+    }
+}
+
+// FUNÇÃO MENU
+int fMenu() {
+    int menu = 0; // VARIAVEL MENU
+    printf("\nBEM VINDO AO MENU DO HOTEL\n");
+    printf("1 - Mostrar Mapa; 2 - Check-in; 3 - Check-out; 4 - Reserva; 5 - Sair\n");
+    scanf("%d", &menu);
+    
+    return menu;
+}
+
+
