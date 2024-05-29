@@ -1,57 +1,64 @@
 #include <stdio.h>
 
+// Declaração Funções
 void fMostraMat(int m[20][14]);
 int fMenu();
-int i,j;
-int m[20][14];
+void fCriaMat(int m[20][14]);
+
+// Declaração Variáveis Globais
 int n = 1;
+int m[20][14];
+int i;
+int j; 
 
+// Estrutura Dados Hóspede - Endereço
 struct stendereco
-	{
-		char rua[100];
-	    char numero[5];
-			char bairro[40];
-            char cidade[40];
-			char uf[2];			
-	};
+{
+    char rua[100];
+    char numero[5];
+    char bairro[40];
+    char cidade[40];
+    char uf[2];            
+};
 
-
+// Estrutura Dados Hóspede
 struct stquarto
-	{
-		char status;
-		char nome[50];
-		char cpf[11];
-		char telefone[11];
-		struct stendereco ender;
-	};
+{
+    char status;
+    char nome[50];
+    char cpf[11];
+    char telefone[11];
+    struct stendereco ender;    // Estrutura Dados Hóspede - Endereço Aninhada
+};
 
-
+// Função Principal
 int main (){
-	
-struct stquarto hot[20][14];
-
-	int fMenu();
-	while (fMenu() == 1){
-	
-	for (i=0; i < 20; i++)
-		for (j=0; j < 14; j++)
-			{m[i][j] = n;
-			n++;
-			}
-    fMostraMat(m);
-    printf("\n------------------------------------\n");
-    printf("\nPressione 0 para voltar ao Menu Inicial\n");
-    scanf("%d", fMenu);
+    fCriaMat(m); // Correção: Chamar a função fCriaMat com argumento m
     
-}
+	fMostraMat(m); // Correção: Chamar a função fMostraMat com argumento m
+    
+    return 0;
 }
 
-//IMPRIMIR MATRIZ (MAPA)	
-void fMostraMat(int m[20][14]) {		
-    for (i = 0; i < 20; i++) {
-        for (j = 0; j < 14; j++)
+// CRIAR E PREENCHER MATRIZ 
+void fCriaMat(int m[20][14]) {
+    // Variável para preencher a matriz
+    int count = 280;
+
+    // Preenchendo a matriz com quartos de 281 a 1
+    for (int i = 0; i < 14; i++) {
+        for (int j = 0; j < 20; j++) {
+            m[i][j] = count--;
+        }
+    }
+}
+
+// IMPRIMIR MATRIZ (MAPA)   
+void fMostraMat(int m[20][14]) {      
+    for (i = 13; i >= 0; i--) {
+        for (j = 0; j < 20; j++)
             printf("%5d", m[i][j]);
-        printf("\n");					
+        printf("\n");                    
     }
 }
 
@@ -64,5 +71,3 @@ int fMenu() {
     
     return menu;
 }
-
-
