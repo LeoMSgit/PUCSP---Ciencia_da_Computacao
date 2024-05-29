@@ -77,3 +77,24 @@ int fMenu() {
     
     return menu;
 }
+
+
+
+// Mostrar a matriz
+void fMostraMat(int m[20][14]) {
+    // Imprimir os números das colunas
+    printf("    ");
+    for (int j = 0; j < 14; j++) {
+        printf("%5d", j);
+    }
+    printf("\n");
+
+    // Imprimir a matriz com os números das linhas
+    for (int i = 0; i < 20; i++) {
+        printf("%2d  ", i); // Imprimir o número da linha
+        for (int j = 0; j < 14; j++) {
+            printf("%5d", m[i][j]);
+        }
+        printf("\n");
+    }
+}
