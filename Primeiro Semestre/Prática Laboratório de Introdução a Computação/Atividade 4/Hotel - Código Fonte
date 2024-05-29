@@ -38,7 +38,7 @@ int main (){
     while (menu == 0){
     fMenu();
     	while (menu == 1){
-    		printf("\nIMPRIMINDO MAPA...\n");
+    		printf("\nIMPRIMINDO MAPA...\n\n");
 			fMostraMat(m);}
 	}
     
