@@ -33,9 +33,9 @@ struct stquarto
 
 // Função Principal
 int main (){
-    fCriaMat(m); // Correção: Chamar a função fCriaMat com argumento m
+    fCriaMat(m);
     
-	fMostraMat(m); // Correção: Chamar a função fMostraMat com argumento m
+	fMostraMat(m);
     
     return 0;
 }
@@ -57,7 +57,7 @@ void fCriaMat(int m[20][14]) {
 void fMostraMat(int m[20][14]) {      
     for (i = 19; i >= 0; i--) {
         for (j = 0; j < 14; j++)
-            printf("%5d", m[i][j]);
+            printf("  L  ", m[i][j]);
         printf("\n");                    
     }
 }
