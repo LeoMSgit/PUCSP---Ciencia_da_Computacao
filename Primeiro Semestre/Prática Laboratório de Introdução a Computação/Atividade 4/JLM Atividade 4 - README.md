@@ -4,9 +4,9 @@ Objetivo do Projeto<br />
 • Todas as operações apresentadas nos requisitos a seguir, podem ser aperfeiçoadas e complementadas conforme a criatividade dos alunos, desde que atendam o que está sendo proposto nestes objetivos (continua a simplificação de não considerar datas).<br />
 
 
-IDEIAS PARA O PROJETO
-Hotel em formato de matrix m[x][y]
-- Sem andar 0
-- Andares começam pelo maior
+Divisão do Trabalho
+- Leonardo: Check-in e Check-ou (Input e Output)
+- Matheus: Reserva e Polimento
+- João: Cadastro
 
 JLM Atividade 4
