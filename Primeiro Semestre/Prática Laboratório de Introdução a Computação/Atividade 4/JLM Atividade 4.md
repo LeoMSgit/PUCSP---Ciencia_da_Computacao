@@ -7,6 +7,6 @@ Objetivo do Projeto<br />
 Divisão do Trabalho
 - Leonardo: Check-in e Check-ou (Input e Output)
 - Matheus: Reserva e Polimento
-- João: Cadastro
+- João Alfredo: Cadastro
 
 JLM Atividade 4
