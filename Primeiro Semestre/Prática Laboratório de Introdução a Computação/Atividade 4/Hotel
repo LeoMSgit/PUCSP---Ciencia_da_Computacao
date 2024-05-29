@@ -46,8 +46,8 @@ void fCriaMat(int m[20][14]) {
     int count = 280;
 
     // Preenchendo a matriz com quartos de 281 a 1
-    for (int i = 0; i < 14; i++) {
-        for (int j = 0; j < 20; j++) {
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 14; j++) {
             m[i][j] = count--;
         }
     }
@@ -55,8 +55,8 @@ void fCriaMat(int m[20][14]) {
 
 // IMPRIMIR MATRIZ (MAPA)   
 void fMostraMat(int m[20][14]) {      
-    for (i = 13; i >= 0; i--) {
-        for (j = 0; j < 20; j++)
+    for (i = 19; i >= 0; i--) {
+        for (j = 0; j < 14; j++)
             printf("%5d", m[i][j]);
         printf("\n");                    
     }
