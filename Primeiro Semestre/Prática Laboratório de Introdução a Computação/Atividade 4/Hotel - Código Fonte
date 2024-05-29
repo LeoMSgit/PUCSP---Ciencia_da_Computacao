@@ -10,6 +10,7 @@ int n = 1;
 int m[20][14];
 int i;
 int j; 
+int menu = 0;
 
 // Estrutura Dados Hóspede - Endereço
 struct stendereco
@@ -31,11 +32,15 @@ struct stquarto
     struct stendereco ender;    // Estrutura Dados Hóspede - Endereço Aninhada
 };
 
-// Função Principal
+// FUNÇÃO PRINCIPAL
 int main (){
     fCriaMat(m);
-    
-	fMostraMat(m);
+    while (menu == 0){
+    fMenu();
+    	while (menu == 1){
+    		printf("\nIMPRIMINDO MAPA...\n");
+			fMostraMat(m);}
+	}
     
     return 0;
 }
@@ -58,13 +63,14 @@ void fMostraMat(int m[20][14]) {
     for (i = 19; i >= 0; i--) {
         for (j = 0; j < 14; j++)
             printf("  L  ", m[i][j]);
-        printf("\n");                    
-    }
+        printf("\n");}
+printf("\n---------------------------------------------------------------------");
+menu = 0;                    
+    
 }
 
 // FUNÇÃO MENU
 int fMenu() {
-    int menu = 0; // VARIAVEL MENU
     printf("\nBEM VINDO AO MENU DO HOTEL\n");
     printf("1 - Mostrar Mapa; 2 - Check-in; 3 - Check-out; 4 - Reserva; 5 - Sair\n");
     scanf("%d", &menu);
