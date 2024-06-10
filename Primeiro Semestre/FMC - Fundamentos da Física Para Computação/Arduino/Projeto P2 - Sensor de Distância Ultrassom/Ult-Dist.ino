@@ -1,6 +1,15 @@
+#include <Adafruit_LiquidCrystal.h>
+
+#define trigPin 2
+#define echoPin 3
+
+long duration;
+int distance;
+Adafruit_LiquidCrystal lcd_1(0);
+int cm;
+int inches;
+
 int maxDistanceThreshold = 100; // Distância máxima de ativação dos LEDs (em centímetros)
-int cm = 0;                     // Distância em centímetros medida pelo sensor ultrassônico
-int inches = 0;                 // Distância em polegadas
 
 long readUltrasonicDistance(int signalPin) {
     pinMode(signalPin, OUTPUT);
@@ -22,6 +31,12 @@ void setup() {
     pinMode(6, OUTPUT);
     pinMode(7, OUTPUT);
     pinMode(8, OUTPUT); // Pino do piezo
+
+    pinMode(trigPin, OUTPUT);
+    pinMode(echoPin, INPUT);
+
+    lcd_1.begin(16, 2); // Inicializa o LCD com 16 colunas e 2 linhas
+    lcd_1.print("Distancia: "); // Imprime o texto inicial no LCD
 }
 
 void loop() {
@@ -32,6 +47,11 @@ void loop() {
     Serial.print("Distancia medida: ");
     Serial.print(cm);
     Serial.println(" cm");
+
+    // Exibe a distância medida no LCD
+    lcd_1.setCursor(0, 1); // Define a posição do cursor no LCD
+    lcd_1.print(cm);       // Imprime a distância medida no LCD
+    lcd_1.print("cm       "); // Preenche o restante da linha no LCD
 
     // Controla os LEDs com base na distância medida
     if (cm >= maxDistanceThreshold) {
