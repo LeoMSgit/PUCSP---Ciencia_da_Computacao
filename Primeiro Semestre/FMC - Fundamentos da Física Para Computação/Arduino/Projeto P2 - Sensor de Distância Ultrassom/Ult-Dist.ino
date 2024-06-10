@@ -1,9 +1,5 @@
-// C++ code
-//
 int distanceThreshold = 0;
-
 int cm = 0;
-
 int inches = 0;
 
 long readUltrasonicDistance(int triggerPin, int echoPin)
