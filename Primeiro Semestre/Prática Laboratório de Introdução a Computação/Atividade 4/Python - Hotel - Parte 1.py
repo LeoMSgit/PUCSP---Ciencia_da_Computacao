@@ -53,9 +53,15 @@ def realizar_check_in(m, status):
     while True:
         try:
             andar_quarto = int(input("Digite o número do andar para check-in (0 para retornar ao Menu): "))
+            if andar_quarto < 1 or andar_quarto > 20:
+                print("Número de andar inválido! Por favor, insira um número entre 1 e 20.")
+                continue
             if andar_quarto == 0:
                 return
             numero_quarto = int(input("Digite o número do quarto para check-in (0 para retornar ao Menu): "))
+            if numero_quarto < 1 or numero_quarto > 14:
+                print("Número de quarto inválido! Por favor, insira um número entre 1 e 14.")
+                continue
             if numero_quarto == 0:
                 return
             if status[20 - andar_quarto][numero_quarto - 1] == '.':
@@ -73,7 +79,13 @@ def realizar_check_out(m, status):
     while True:
         try:
             andar_quarto = int(input("Digite o número do andar para check-out: "))
+            if andar_quarto < 1 or andar_quarto > 20:
+                print("Número de andar inválido! Por favor, insira um número entre 1 e 20.")
+                continue
             numero_quarto = int(input("Digite o número do quarto para check-out: "))
+            if numero_quarto < 1 or numero_quarto > 14:
+                print("Número de quarto inválido! Por favor, insira um número entre 1 e 14.")
+                continue
             if status[20 - andar_quarto][numero_quarto - 1] == 'O':
                 status[20 - andar_quarto][numero_quarto - 1] = '.'
                 print(f"Check-out realizado com sucesso no quarto {andar_quarto} {numero_quarto}.")
@@ -89,11 +101,17 @@ def realizar_reserva(m, status):
     while True:
         try:
             andar_quarto = int(input("Digite o número do andar para reserva (0 para retornar ao Menu): "))
+            if andar_quarto < 1 or andar_quarto > 20:
+                print("Número de andar inválido! Por favor, insira um número entre 1 e 20.")
+                continue
             if andar_quarto == 0:
                 return
             numero_quarto = int(input("Digite o número do quarto para reserva (0 para retornar ao Menu): "))
+            if numero_quarto < 1 or numero_quarto > 14:
+                print("Número de quarto inválido! Por favor, insira um número entre 1 e 14.")
+                continue
             if numero_quarto == 0:
-                               return
+                return
             if status[20 - andar_quarto][numero_quarto - 1] == '.':
                 status[20 - andar_quarto][numero_quarto - 1] = 'R'
                 print(f"Reserva realizada com sucesso no quarto {andar_quarto} {numero_quarto}.")
@@ -109,9 +127,15 @@ def cancelar_reserva(m, status):
     while True:
         try:
             andar_quarto = int(input("Digite o número do andar para cancelar a reserva (0 para retornar ao Menu): "))
+            if andar_quarto < 1 or andar_quarto > 20:
+                print("Número de andar inválido! Por favor, insira um número entre 1 e 20.")
+                continue
             if andar_quarto == 0:
                 return
             numero_quarto = int(input("Digite o número do quarto para cancelar a reserva (0 para retornar ao Menu): "))
+            if numero_quarto < 1 or numero_quarto > 14:
+                print("Número de quarto inválido! Por favor, insira um número entre 1 e 14.")
+                continue
             if numero_quarto == 0:
                 return
             if status[20 - andar_quarto][numero_quarto - 1] == 'R':
@@ -123,6 +147,7 @@ def cancelar_reserva(m, status):
                 print(f"O quarto {andar_quarto} {numero_quarto} não está reservado.")
         except ValueError:
             print("Entrada inválida! Por favor, insira um número.")
+
 
 # Função Principal
 def main():
