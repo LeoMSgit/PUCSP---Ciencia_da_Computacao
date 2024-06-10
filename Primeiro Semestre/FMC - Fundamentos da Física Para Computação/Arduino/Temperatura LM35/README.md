@@ -17,4 +17,7 @@ R: Feito <br />
 <br />
 D) Faça ascender um LED vermelho quando a temperatura estiver acima de +30°C . Ligue o LED com um resistor<br />
 R: Feito
+
+https://www.tinkercad.com/things/ctCAT7VcDc2-temperatura-lm-35
+
 ![alt text](https://i.imgur.com/MqArrIS.jpeg)
