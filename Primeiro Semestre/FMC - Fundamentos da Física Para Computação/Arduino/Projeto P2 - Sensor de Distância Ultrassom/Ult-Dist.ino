@@ -1,5 +1,4 @@
 int maxDistanceThreshold = 100; // Distância máxima de ativação dos LEDs (em centímetros)
-int minDistanceThreshold = 5;   // Distância mínima de ativação dos LEDs (em centímetros)
 int cm = 0;                     // Distância em centímetros medida pelo sensor ultrassônico
 int inches = 0;                 // Distância em polegadas
 
@@ -30,7 +29,7 @@ void loop() {
 
     cm = 0.01723 * readUltrasonicDistance(signalPin); // Mede a distância em centímetros
     inches = (cm / 2.54);                            // Converte para polegadas
-    Serial.print("Distância medida: ");
+    Serial.print("Distancia medida: ");
     Serial.print(cm);
     Serial.println(" cm");
 
@@ -90,12 +89,12 @@ void loop() {
         }
 
         // Calcula o intervalo do buzzer baseado na distância medida
-        int beepInterval = map(cm, minDistanceThreshold, maxDistanceThreshold, 100, 1000); // Intervalo de 100ms a 1000ms
+        int beepInterval = map(cm, 0, maxDistanceThreshold, 100, 1000); // Intervalo de 100ms a 1000ms
         tone(8, 2000); // Emite um som de frequência constante
         delay(100);    // Duração do beep
         noTone(8);     // Para o som
         delay(beepInterval - 100); // Aguarda o tempo restante do intervalo
     }
 
-    delay(1000); // Aguarda 1000 milissegundos (1 segundo) antes de repetir
+    delay(200); // Aguarda 2 segundos antes de repetir
 }
