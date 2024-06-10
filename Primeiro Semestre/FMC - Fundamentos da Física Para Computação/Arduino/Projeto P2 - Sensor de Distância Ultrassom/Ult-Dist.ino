@@ -109,12 +109,16 @@ void loop() {
         }
 
         // Calcula o intervalo do buzzer baseado na distância medida
-        int beepInterval = map(cm, 0, maxDistanceThreshold, 100, 1000); // Intervalo de 100ms a 1000ms
-        tone(8, 2000); // Emite um som de frequência constante
-        delay(100);    // Duração do beep
-        noTone(8);     // Para o som
-        delay(beepInterval - 100); // Aguarda o tempo restante do intervalo
+        if (cm <= 5) {
+            tone(8, 2000); // Emite um som constante se a distância for menor ou igual a 5 cm
+        } else {
+            int beepInterval = map(cm, 6, maxDistanceThreshold, 100, 1000); // Intervalo de 100ms a 1000ms
+            tone(8, 2000); // Emite um som de frequência constante
+            delay(100);    // Duração do beep
+            noTone(8);     // Para o som
+            delay(beepInterval - 100); // Aguarda o tempo restante do intervalo
+        }
     }
 
-    delay(200); // Aguarda 2 segundos antes de repetir
+    delay(100); // Aguarda 1 segundos antes de repetir
 }
