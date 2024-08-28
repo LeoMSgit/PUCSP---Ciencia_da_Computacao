@@ -1,4 +1,4 @@
-// Dom_LLM_Controller.v
+// Dom_LLM_Controller.c
 #include <stdio.h>
 #include "Dom_LLM_Controller.h"
 #include "Dom_LLM_View.h"
