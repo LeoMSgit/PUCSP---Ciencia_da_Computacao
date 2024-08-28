@@ -1,7 +1,8 @@
-// model.c
-#include "Dom_LLM_ Model.h"
-#include <stdlib.h>
+// Dom_LLM_Model.c
+
 #include <stdio.h>
+#include <stdlib.h>
+#include "Dom_LLM_Model.h"
 
 void gerarPecas(PecaDomino pecas[]) {
     int indice = 0;
@@ -11,6 +12,17 @@ void gerarPecas(PecaDomino pecas[]) {
             pecas[indice].lado2 = j;
             indice++;
         }
+    }
+}
+
+void imprimirPecas(PecaDomino pecas[], int tamanho) {
+    for (int i = 0; i <= 6; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            if (pecas[j].lado1 == i) {
+                printf("[%d|%d] ", pecas[j].lado1, pecas[j].lado2);
+            }
+        }
+        printf("\n");
     }
 }
 
