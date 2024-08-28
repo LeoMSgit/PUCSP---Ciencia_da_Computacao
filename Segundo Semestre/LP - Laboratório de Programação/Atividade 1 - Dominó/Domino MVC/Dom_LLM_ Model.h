@@ -1,4 +1,5 @@
 // Dom_LLM_Model.h
+
 #ifndef DOM_LLM_MODEL_H
 #define DOM_LLM_MODEL_H
 
@@ -14,8 +15,8 @@ typedef struct {
     PecaDomino embaralhadas[TOTAL_PECAS];
 } TipoDomino;
 
-// Funções do modelo
 void gerarPecas(PecaDomino pecas[]);
+void imprimirPecas(PecaDomino pecas[], int tamanho);
 void embaralharPecas(PecaDomino pecas[], int tamanho);
 
 #endif // DOM_LLM_MODEL_H
