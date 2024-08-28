@@ -1,4 +1,4 @@
-// Dom_LLM_View.h
+// Dom_LLM_Model.h
 #ifndef DOM_LLM_MODEL_H
 #define DOM_LLM_MODEL_H
 
