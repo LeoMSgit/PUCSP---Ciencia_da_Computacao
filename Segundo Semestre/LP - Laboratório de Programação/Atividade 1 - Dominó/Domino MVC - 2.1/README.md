@@ -1,21 +1,27 @@
-Para implementar as exigências especificadas (REQ07 a REQ12) no seu sistema baseado no modelo MVC, você precisará fazer modificações e adicionar código aos arquivos já existentes e, possivelmente, criar novos arquivos para novas funcionalidades. Vou orientá-lo sobre como você pode ajustar cada parte do código de acordo com as exigências:
+Para adicionar o requisito REQ08, que especifica que o sistema deve distribuir aleatoriamente 7 peças para cada jogador, você pode implementar uma função `distribuirPecas` que cuida da distribuição das peças embaralhadas entre os jogadores. Vou descrever como você pode fazer isso passo a passo.
 
-### 1. Atualizações no Modelo (`Dom_LLM_Model`)
+### Passos para Implementar a Distribuição de Peças
 
-Vamos começar atualizando o modelo para lidar com a distribuição das peças e a mesa de jogo.
+1. **Inicializar a Mão dos Jogadores:**
+   - Adicione uma estrutura para armazenar as peças de cada jogador, se ainda não existir.
 
-#### Atualizações em `Dom_LLM_Model.h`
+2. **Função para Distribuir as Peças:**
+   - Crie uma função que distribui aleatoriamente 7 peças para cada jogador a partir do conjunto de peças embaralhadas.
 
-Adicione declarações para a mesa e as funções de compra e validação de jogadas.
+### Atualizações Necessárias
+
+#### 1. Atualização do Arquivo `Dom_LLM_Model.h`
+
+Certifique-se de que a estrutura para armazenar a mão dos jogadores está definida e declare a nova função `distribuirPecas`.
 
 ```c
 #ifndef DOM_LLM_MODEL_H
 #define DOM_LLM_MODEL_H
 
-const int totalPecas = 28;
-const int pecasCadaJogador = 7;
-const int maxJogadores = 2;
-const int mesaMax = 10; // Exemplo, você pode ajustar conforme necessário
+#define TOTAL_PECAS 28
+#define MAX_JOGADORES 2
+#define MIN_JOGADORES 1
+#define PEÇAS_INICIAIS 7 // Número de peças iniciais por jogador
 
 typedef struct {
     int lado1;
@@ -23,33 +29,28 @@ typedef struct {
 } PecaDomino;
 
 typedef struct {
-    PecaDomino ordenadas[totalPecas];
-    PecaDomino embaralhadas[totalPecas];
-    PecaDomino mesa[mesaMax];
-    int numPecasMesa;
-    PecaDomino mao[maxJogadores][pecasCadaJogador];
-    int numJogadores;
-    int jogadorAtual;
+    PecaDomino ordenadas[TOTAL_PECAS];
+    PecaDomino embaralhadas[TOTAL_PECAS];
+    PecaDomino mao[MAX_JOGADORES][PEÇAS_INICIAIS]; // Mão dos jogadores
+    int numPecasMao[MAX_JOGADORES]; // Contador de peças na mão de cada jogador
 } TipoDomino;
 
-// Declaração externa da variável global
+// Declaração externa das variáveis globais
 extern TipoDomino tipo;
+extern int numeroJogadores;
 
-// Funcoes do model
+// Funções do model
 void gerarPecas(PecaDomino pecas[]);
 void embaralharPecas(PecaDomino pecas[], int tamanho);
 void distribuirPecas();
-void criarMesa();
-void definirJogadorAtual();
-int comprarPeca(PecaDomino *peca);
-int validarJogada(PecaDomino peca);
+void comprarPecas(int jogador);
 
 #endif // DOM_LLM_MODEL_H
 ```
 
-#### Atualizações em `Dom_LLM_Model.c`
+#### 2. Implementação da Função `distribuirPecas` no Arquivo `Dom_LLM_Model.c`
 
-Implemente as funções novas e altere as existentes conforme necessário.
+Adicione a implementação para distribuir 7 peças aleatórias para cada jogador.
 
 ```c
 #include "Dom_LLM_Model.h"
@@ -57,6 +58,7 @@ Implemente as funções novas e altere as existentes conforme necessário.
 #include <stdio.h>
 
 TipoDomino tipo;
+int numeroJogadores = MIN_JOGADORES;
 
 void gerarPecas(PecaDomino pecas[]) {
     int indice = 0;
@@ -80,216 +82,93 @@ void embaralharPecas(PecaDomino pecas[], int tamanho) {
 }
 
 void distribuirPecas() {
-    int indice = 0;
-    for (int i = 0; i < tipo.numJogadores; i++) {
-        for (int j = 0; j < pecasCadaJogador; j++) {
-            tipo.mao[i][j] = tipo.embaralhadas[indice++];
+    int indicePeca = 0; // Índice para acessar a próxima peça a ser distribuída
+
+    // Inicializa a quantidade de peças na mão dos jogadores
+    for (int i = 0; i < MAX_JOGADORES; i++) {
+        tipo.numPecasMao[i] = 0;
+    }
+
+    // Distribui 7 peças para cada jogador
+    for (int jogador = 0; jogador < numeroJogadores; jogador++) {
+        for (int i = 0; i < PEÇAS_INICIAIS; i++) {
+            tipo.mao[jogador][i] = tipo.embaralhadas[indicePeca++];
         }
+        tipo.numPecasMao[jogador] = PEÇAS_INICIAIS;
     }
 }
 
-void criarMesa() {
-    tipo.numPecasMesa = 0; // Inicia a mesa vazia
-}
+void comprarPecas(int jogador) {
+    if
 
-void definirJogadorAtual() {
-    tipo.jogadorAtual = rand() % tipo.numJogadores; // Define jogador aleatório para começar
-}
-
-int comprarPeca(PecaDomino *peca) {
-    for (int i = 0; i < totalPecas; i++) {
-        if (tipo.embaralhadas[i].lado1 != -1) { // Verifica se a peça está disponível
-            *peca = tipo.embaralhadas[i];
-            tipo.embaralhadas[i].lado1 = -1; // Marca a peça como retirada
-            return 1; // Sucesso
-        }
-    }
-    return 0; // Sem peças disponíveis
-}
-
-int validarJogada(PecaDomino peca) {
-    if (tipo.numPecasMesa == 0) return 1; // Se a mesa está vazia, qualquer peça é válida
-
-    PecaDomino extremidadeEsquerda = tipo.mesa[0];
-    PecaDomino extremidadeDireita = tipo.mesa[tipo.numPecasMesa - 1];
-
-    return (peca.lado1 == extremidadeEsquerda.lado1 || peca.lado2 == extremidadeEsquerda.lado1 ||
-            peca.lado1 == extremidadeDireita.lado2 || peca.lado2 == extremidadeDireita.lado2);
-}
-```
-
-### 2. Atualizações na Visão (`Dom_LLM_View`)
-
-Adicione funções para exibir informações relacionadas à mesa e permitir ao jogador comprar uma peça.
-
-#### Atualizações em `Dom_LLM_View.h`
+### Continuação da Implementação da Função `distribuirPecas`
 
 ```c
-#ifndef DOM_LLM_VIEW_H
-#define DOM_LLM_VIEW_H
+void comprarPecas(int jogador) {
+    if (jogador < 0 || jogador >= numeroJogadores) {
+        printf("Número de jogador inválido.\n");
+        return;
+    }
 
-#include "Dom_LLM_Model.h"
-
-// Funcoes da View
-void imprimirPecas(PecaDomino pecas[], int tamanho);
-void exibirMenu(TipoDomino *tipo);
-void exibirMesa(TipoDomino *tipo);
-void exibirMao(TipoDomino *tipo, int jogador);
-void comprarPeca(TipoDomino *tipo);
-void jogarPeca(TipoDomino *tipo);
-
-#endif // DOM_LLM_VIEW_H
-```
-
-#### Atualizações em `Dom_LLM_View.c`
-
-Implemente funções para exibir a mesa e permitir ações do jogador.
-
-```c
-#include "Dom_LLM_View.h"
-#include <stdio.h>
-
-void imprimirPecas(PecaDomino pecas[], int tamanho) {
-    int i, j;
-    for (i = 0; i <= 6; i++) {
-        for (j = 0; j < tamanho; j++) {
-            if (pecas[j].lado1 == i) {
-                printf("[%d|%d] ", pecas[j].lado1, pecas[j].lado2);
-            }
+    // Exemplo de como comprar uma peça
+    // Este é apenas um exemplo. Adaptar conforme necessário para seu jogo
+    if (indicePeca < TOTAL_PECAS) {
+        if (tipo.numPecasMao[jogador] < PEÇAS_INICIAIS) {
+            tipo.mao[jogador][tipo.numPecasMao[jogador]++] = tipo.embaralhadas[indicePeca++];
+        } else {
+            printf("O jogador já tem a quantidade máxima de peças.\n");
         }
-        printf("\n");
-    }
-}
-
-void exibirMenu(TipoDomino *tipo) {
-    int opcao;
-
-    do {
-        printf("Escolha uma opcao:\n");
-        printf("1. Exibir pecas em ordem\n");
-        printf("2. Exibir pecas embaralhadas ou reembaralhar pecas\n");
-        printf("3. Exibir pecas em ordem e embaralhadas\n");
-        printf("4. Exibir mesa\n");
-        printf("5. Comprar peça\n");
-        printf("6. Jogar peça\n");
-        printf("0. Sair\n");
-        printf("Digite sua opcao: ");
-        scanf("%d", &opcao);
-
-        switch (opcao) {
-            case 1:
-                printf("Pecas do Domino (Em Ordem):\n");
-                imprimirPecas(tipo->ordenadas, totalPecas);
-                break;
-            case 2:
-                printf("Pecas do Domino (Embaralhadas):\n");
-                embaralharPecas(tipo->embaralhadas, totalPecas);
-                imprimirPecas(tipo->embaralhadas, totalPecas);
-                break;
-            case 3:
-                printf("Pecas do Domino (Em Ordem):\n");
-                imprimirPecas(tipo->ordenadas, totalPecas);
-                printf("Pecas do Domino (Embaralhadas):\n");
-                imprimirPecas(tipo->embaralhadas, totalPecas);
-                break;
-            case 4:
-                exibirMesa(tipo);
-                break;
-            case 5:
-                comprarPeca(tipo);
-                break;
-            case 6:
-                jogarPeca(tipo);
-                break;
-            case 0:
-                printf("Saindo...\n");
-                break;
-            default:
-                printf("Opcao invalida. Tente novamente.\n");
-        }
-        printf("\n");
-    } while (opcao != 0);
-}
-
-void exibirMesa(TipoDomino *tipo) {
-    printf("Mesa:\n");
-    for (int i = 0; i < tipo->numPecasMesa; i++) {
-        printf("[%d|%d] ", tipo->mesa[i].lado1, tipo->mesa[i].lado2);
-    }
-    printf("\n");
-}
-
-void exibirMao(TipoDomino *tipo, int jogador) {
-    printf("Mão do Jogador %d:\n", jogador + 1);
-    for (int i = 0; i < pecasCadaJogador; i++) {
-        printf("[%d|%d] ", tipo->mao[jogador][i].lado1, tipo->mao[jogador][i].lado2);
-    }
-    printf("\n");
-}
-
-void comprarPeca(TipoDomino *tipo) {
-    PecaDomino peca;
-    if (comprarPeca(&peca)) {
-        printf("Peça comprada: [%d|%d]\n", peca.lado1, peca.lado2);
-        // Adicionar lógica para adicionar a peça à mão do jogador atual
     } else {
-        printf("Não há peças disponíveis para compra.\n");
+        printf("Não há mais peças para comprar.\n");
     }
-}
-
-void jogarPeca(TipoDomino *tipo) {
-    // Adicione aqui a lógica para jogar uma peça
-    // Solicitar ao jogador que escolha uma peça e verificar se a jogada é válida
 }
 ```
 
-### 3. Atualizações no Controlador (`Dom_LLM_Controller`)
+### Explicação das Alterações
 
-Adicione a lógica para inicializar o jogo, distribuir as peças, e tratar as ações dos jogadores.
+1. **Função `distribuirPecas`**:
+   - **Objetivo:** Distribuir aleatoriamente 7 peças para cada jogador a partir das peças embaralhadas.
+   - **Implementação:**
+     - **Variável `indicePeca`:** Mantém o controle de qual peça do conjunto embaralhado será distribuída a seguir.
+     - **Distribuição das Peças:** Itera sobre o número de jogadores e distribui 7 peças para cada um, atualizando a variável `indicePeca` conforme as peças são alocadas.
 
-#### Atualizações em `Dom_LLM_Controller.c`
+2. **Função `comprarPecas` (Opcional)**:
+   - Se você desejar implementar a compra de peças durante o jogo, a função `comprarPecas` pode ser usada para adicionar peças da pilha de peças embaralhadas para a mão do jogador.
 
+### Atualização do Arquivo `Dom_LLM_Controller.c`
+
+Atualize a função `iniciarJogo` para chamar `distribuirPecas` após a embaralhamento das peças.
+
+```c
 #include "Dom_LLM_Controller.h"
-#include "Dom_LLM_View.c"
-#include "Dom_LLM_Model.c"
 
 void iniciarJogo() {
     // Gerar as peças (Model)
     gerarPecas(tipo.ordenadas);
     
     // Copiar as peças ordenadas para as embaralhadas
-    for (int i = 0; i < totalPecas; i++) {
+    for (int i = 0; i < TOTAL_PECAS; i++) {
         tipo.embaralhadas[i] = tipo.ordenadas[i];
     }
     
     // Embaralhar as peças (Model)
-    embaralharPecas(tipo.embaralhadas, totalPecas);
+    embaralharPecas(tipo.embaralhadas, TOTAL_PECAS);
 
-    // Exibir o menu para o usuário (View)
-    escolherNumeroDeJogadores();
+    // Exibir o menu inicial e definir o número de jogadores
+    exibirMenuInicial();
+
+    // Distribuir as peças para os jogadores
     distribuirPecas();
-    criarMesa();
-    definirJogadorAtual();
-    exibirMenu(&tipo);
+
+    // Continuar com o restante do jogo (exibindo menu principal, etc.)
+    exibirMenuPrincipal(&tipo);
 }
+```
 
+### Resumo
 
-     Atualizações em Dom_LLM_Controller.h
-c
-Copiar código
-#ifndef DOM_LLM_CONTROLLER_H
-#define DOM_LLM_CONTROLLER_H
+- **Função `distribuirPecas`** garante que cada jogador receba 7 peças aleatórias do conjunto embaralhado.
+- **Função `comprarPecas`** (opcional) pode ser usada para adicionar peças ao longo do jogo, se necessário.
+- **Atualização do `iniciarJogo`** para chamar `distribuirPecas` após embaralhar as peças.
 
-#include "Dom_LLM_Model.h"
-#include "Dom_LLM_View.h"
-
-// Funções do controlador
-void iniciarJogo();
-void escolherNumeroDeJogadores();
-void distribuirPecas();
-void criarMesa();
-void definirJogadorAtual();
-int comprarPeca(PecaDomino *peca);
-int validarJogada(PecaDomino peca);
-
-#endif // DOM_LLM_CONTROLLER_H
+Com essas mudanças, seu sistema estará alinhado com o requisito REQ08, distribuindo aleatoriamente 7 peças para cada jogador. Se houver mais detalhes sobre o jogo ou outras funcionalidades, ajuste as funções conforme necessário.
