@@ -1,5 +1,3 @@
-Claro, vou ajudar com ideias sobre como implementar esses requisitos. Vamos detalhar como cada um pode ser abordado:
-
 ### **REQ07: Determinar a Quantidade de Jogadores**
 
 - **Implementação:**
@@ -130,12 +128,9 @@ Claro, vou ajudar com ideias sobre como implementar esses requisitos. Vamos deta
   }
   ```
 
-Essas implementações fornecem uma base para adicionar as funcionalidades exigidas. Você pode ajustar e expandir conforme necessário para atender aos requisitos específicos do projeto e garantir uma boa experiência para o usuário.
 
 
-
-
-Claro! Vou indicar em qual parte do padrão MVC (Model-View-Controller) cada uma dessas funcionalidades deve ser implementada:
+MODELO MVC
 
 ### **REQ07: Determinar a Quantidade de Jogadores**
 - **Parte do MVC:** **View**
