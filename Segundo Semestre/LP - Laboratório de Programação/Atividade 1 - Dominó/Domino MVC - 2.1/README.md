@@ -249,5 +249,47 @@ Adicione a lógica para inicializar o jogo, distribuir as peças, e tratar as a�
 
 #### Atualizações em `Dom_LLM_Controller.c`
 
-```c
 #include "Dom_LLM_Controller.h"
+#include "Dom_LLM_View.c"
+#include "Dom_LLM_Model.c"
+
+void iniciarJogo() {
+    // Gerar as peças (Model)
+    gerarPecas(tipo.ordenadas);
+    
+    // Copiar as peças ordenadas para as embaralhadas
+    for (int i = 0; i < totalPecas; i++) {
+        tipo.embaralhadas[i] = tipo.ordenadas[i];
+    }
+    
+    // Embaralhar as peças (Model)
+    embaralharPecas(tipo.embaralhadas, totalPecas);
+
+    // Exibir o menu para o usuário (View)
+    escolherNumeroDeJogadores();
+    distribuirPecas();
+    criarMesa();
+    definirJogadorAtual();
+    exibirMenu(&tipo);
+}
+
+
+     Atualizações em Dom_LLM_Controller.h
+c
+Copiar código
+#ifndef DOM_LLM_CONTROLLER_H
+#define DOM_LLM_CONTROLLER_H
+
+#include "Dom_LLM_Model.h"
+#include "Dom_LLM_View.h"
+
+// Funções do controlador
+void iniciarJogo();
+void escolherNumeroDeJogadores();
+void distribuirPecas();
+void criarMesa();
+void definirJogadorAtual();
+int comprarPeca(PecaDomino *peca);
+int validarJogada(PecaDomino peca);
+
+#endif // DOM_LLM_CONTROLLER_H
