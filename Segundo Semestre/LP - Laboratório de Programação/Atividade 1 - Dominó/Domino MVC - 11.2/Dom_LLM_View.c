@@ -15,11 +15,24 @@ void imprimirPecasMao(Jogador jogador) {
 }
 
 void imprimirPecas(PecaDomino pecas[], int tamanho) {
-    for (i = 0; i <= 6; i++) {
-        for (j = 0; j < tamanho; j++) {
-            if (pecas[j].lado1 == i) {
-                printf("[%d|%d] ", pecas[j].lado1, pecas[j].lado2);
-            }
+    int linha = 0;
+    int totalLinhas = 7; // Número máximo de linhas no formato piramidal
+    
+    // Exibe as peças em formato de pirâmide de ponta cabeça
+    for (int i = totalLinhas; i > 0; i--) {
+        int pecasPorLinha = i;
+        for (int j = 0; j < pecasPorLinha && linha < tamanho; j++) {
+            printf("[%d|%d] ", pecas[linha].lado1, pecas[linha].lado2);
+            linha++;
+        }
+        printf("\n");
+    }
+    
+    // Se ainda houver peças restantes, exibe-as na última linha
+    if (linha < tamanho) {
+        printf("Peças restantes:\n");
+        for (int k = linha; k < tamanho; k++) {
+            printf("[%d|%d] ", pecas[k].lado1, pecas[k].lado2);
         }
         printf("\n");
     }
