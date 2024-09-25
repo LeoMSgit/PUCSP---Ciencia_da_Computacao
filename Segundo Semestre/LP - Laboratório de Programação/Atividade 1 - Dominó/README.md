@@ -1,3 +1,8 @@
+Entrega Final 01/10 - Apresentação até REQ17
+
+
+
+
 # Projeto Jogo de Dominó
 
 ## Pontifícia Universidade Católica de São Paulo
