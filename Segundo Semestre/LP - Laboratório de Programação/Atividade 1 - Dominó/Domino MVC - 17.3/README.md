@@ -1,6 +1,6 @@
 Atualizado para Jogador só poder Jogar uma vez
 
-Próximo Passo: Implmentar Regras Avançadas
+Próximo Passo: Implementar Regras Avançadas
 
 - Opção para Mostrar as Regras (Menu 1 ou 2 Jogadores)
 - Opção Sair do Jogo (Menu Inicial)
