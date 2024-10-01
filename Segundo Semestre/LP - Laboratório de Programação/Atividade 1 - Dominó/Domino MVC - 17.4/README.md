@@ -1,6 +1,6 @@
 Atualizado para Jogador só realizar uma Jogada Válida, 0 retorna ao Menu de Ações
 
-Próximo Passo: Implementar Regras Avançadas
+Próximo Passo: Implementar Abandono de Partida
 
 - Opção para Mostrar as Regras (Menu 1 ou 2 Jogadores)
 - Opção Sair do Jogo (Menu Inicial)
