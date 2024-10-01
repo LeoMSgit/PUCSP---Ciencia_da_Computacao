@@ -6,8 +6,8 @@ Próximo Passo: Implmentar Regras Avançadas
 - Opção Sair do Jogo (Menu Inicial)
 - Opção Abandonar Partida (Menu Ações)
   - Jogador que Abandonou Perde (Oponente Ganha)
-~~- Jogador só pode jogar uma peça por rodada~~
-~~- Jogador só pode comprar 3 peças por rodada~~
+- ~~Jogador só pode jogar uma peça por rodada~~
+- ~~Jogador só pode comprar 3 peças por rodada~~
   - Jogador não pode comprar peça se já tiver Jogado
 - Lógica de Turnos
 - Jogador só pode passar a vez se tiver realizado uma jogada OU se tiver comprado 3 peças
