@@ -1,4 +1,4 @@
-Atualizado para Altera Menu Inicial com opção de Regras
+Atualizado para: Jogador só pode passar a vez se tiver realizado uma jogada OU se tiver comprado 3 peças
 
 Próximo Passo: Reiniciar contador de compra ao passar a vez
 
