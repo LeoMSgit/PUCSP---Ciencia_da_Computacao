@@ -18,3 +18,4 @@ Nesse caso     *ptr retorna 100, pois está apontando o conteúdo do endereço d
                 ptr retorna 6684180, pois está apontando o endereço onde a variável a está registrada
 
 Ao modificar um ponteiro a modificação não é transmitida para a variável, apenas modifica a "cópia" que está presente no ponteiro
+A não ser que a variável seja referenciada como &a, nesse caso você está apontando o enderço da variável e está modificando a original
