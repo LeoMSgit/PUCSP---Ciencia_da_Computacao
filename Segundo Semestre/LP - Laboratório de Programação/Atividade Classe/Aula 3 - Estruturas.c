@@ -21,7 +21,7 @@ struct <nome_struct> {
 
 // Definição da struct
 struct pesquisa {
-    int RA;
+    char RA[20];
     int pets;
     float salario;
 };
@@ -31,11 +31,16 @@ int main() {
     struct pesquisa p;
 
     
+    printf("Digite o numero de RA: ");
+    scanf("%s", &p.RA); 						//Para arrays não é necessário apontar o local com '&', pois o array já é o próprio ponteiro e não utiliza 
     printf("Digite o numero de pets: ");
-    scanf("%d", &p.pets);  
+    scanf("%d", &p.pets);
+    printf("Digite o numero de salario: ");
+    scanf("%f", &p.salario);
 
-    
+    printf("Numero de RA: %s\n", p.RA);
     printf("Numero de pets: %d\n", p.pets);  
-
+	printf("Numero de salario: R$%.2f\n", p.salario);
+	
     return 0;
 }
