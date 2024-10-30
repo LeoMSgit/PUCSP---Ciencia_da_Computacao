@@ -40,19 +40,3 @@ int main() {
 	
     return 0;
 }
-
-4) Typedef 
-- Define uma struct como um armazenamento complexo, como algo próprio e inato da linguagem, como se estivéssemos utilizando uma biblioteca
-- O typedef serve como uma variável para armazenar e chamar outras variáveis todas de uma vez
- - Desse modo, é possível chamar uma uma variável 'tPesquisa' que representa a struct para acessar todas as outras variáveis contidas dentro dela
-
-
-EXEMPLO 
-typedef struct pesquisa {
-    char RA[20];
-    int pets;
-    float salario;
-}; tPesquisa;
-
-4.1) Typedef como Função
--  O typedef pode ser chamado como uma função para armazenar de forma contínua dados referentes as suas variáveis
