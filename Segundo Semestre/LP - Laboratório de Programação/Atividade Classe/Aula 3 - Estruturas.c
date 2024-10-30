@@ -7,8 +7,8 @@ Estruturas
 
 2) Sintaxe
 struct <nome_struct> {
-  tipo variavel1
-  tipo variavel2
+  tipo variavel1;
+  tipo variavel2;
 };
 
 3) Locias de Declaração
