@@ -1,11 +1,3 @@
-1) Faça um programa para calcular o valor de Z e mostrar na tela os valores de X, Y e Z.
-x = 40545
-y = 70226
-Z = 9x4 – y
-4 + 2y2
-Qual o valor de Z ?
-RESPOSTA1
-: ____________________________________________________________
 2) Faça um programa para verificar se a saída apresentada é igual à saída esperada, utilizando o 
 trecho dado a seguir. 
  a = 1.547; b = 3.276; c = 4.823;
