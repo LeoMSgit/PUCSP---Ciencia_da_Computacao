@@ -6,3 +6,5 @@
    - void indica que a função main não retorna nada
    - (String[] args) permite que o programa seja alterado dinamicamente pela linha de comando ao enviar strings para o programa, sem precisar iniciá-lo novamente caso novos parâmetros sejam passados
 4) A extensão do arquivo em java é ".java"
+
+5) System.out.println("Olá") é a função print
