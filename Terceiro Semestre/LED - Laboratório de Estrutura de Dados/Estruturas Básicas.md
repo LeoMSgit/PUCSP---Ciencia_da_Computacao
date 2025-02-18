@@ -4,5 +4,5 @@
    - essa função DEVE ser public, caso contrário o programa não poderá ser compilado pela Java Virtual Machine
    - static indica ao compilador está atribuindo um valor que pertence à classe e não a uma instância específica. Isso significa que você pode acessar e modificar esse valor diretamente pela classe, sem depender do estado de um objeto específico.
    - void indica que a função main não retorna nada
-   - (String[] args) indica que todo o restante do código é um parâmetro para o funcionamento dessa função
+   - (String[] args) permite que o programa seja alterado dinamicamente pela linha de comando, sem precisar iniciá-lo novamente caso novos parâmetros sejam passados
 4) A extensão do arquivo em java é ".java"
