@@ -3,7 +3,7 @@ Atividades Relacionadas a Graduação de Ciência da Computação na Pontífice 
 
 - Segundo Ano
   - Terceiro Semestre
-   - [EDL - Estrutura de Dados Lineares](https://github.com/LeoMSgit/PUCSP---Ciencia_da_Computacao/tree/main/Terceiro%20Semestre/EDL%20-%20Estrutura%20de%20Dados%20LinearesL)
+   - [EDL - Estrutura de Dados Lineares](https://github.com/LeoMSgit/PUCSP---Ciencia_da_Computacao/tree/main/Terceiro%20Semestre/EDL%20-%20Estrutura%20de%20Dados%20Lineares)
    - [LED - Laboratório de Estrutura de Dados](https://github.com/LeoMSgit/PUCSP---Ciencia_da_Computacao/tree/main/Terceiro%20Semestre/LED)
    - [FSE - Fisica para Sistema Embarcados](https://github.com/LeoMSgit/PUCSP---Ciencia_da_Computacao/tree/main/Terceiro%20Semestre/FSE)
 
