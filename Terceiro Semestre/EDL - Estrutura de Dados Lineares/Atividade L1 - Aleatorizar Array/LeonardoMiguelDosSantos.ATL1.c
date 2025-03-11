@@ -58,7 +58,7 @@ bool verificarRepetido(unsigned char V[]) {
 }
 
 int main() {
-    unsigned char V[MAX + 1];
+    unsigned char V[MAX];
     
     construirNumeros(V);
     mostrarNumeros(V);
