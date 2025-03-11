@@ -13,7 +13,7 @@
 #include <time.h>
 #include "Booleano.h"
 
-#define TAMANHO_ARRAY 9
+#define MAX 10
 
 // interface (protótipo ou assinatura)
 void construirNumeros(unsigned char V[]);
@@ -25,15 +25,15 @@ void construirNumeros(unsigned char V[]) {
     srand(time(NULL));
     int A[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     
-    for (int i = TAMANHO_ARRAY - 1; i > 0; i--) {
+    for (int i = MAX - 2; i > 0; i--) {
         int j = rand() % (i + 1);
         int temp = A[i];
         A[i] = A[j];
         A[j] = temp;
     }
     
-    V[0] = TAMANHO_ARRAY;
-    for (int i = 0; i < TAMANHO_ARRAY; i++) {
+    V[0] = MAX - 1;
+    for (int i = 0; i < MAX; i++) {
         V[i + 1] = A[i];
     }
 }
@@ -58,12 +58,12 @@ bool verificarRepetido(unsigned char V[]) {
 }
 
 int main() {
-    unsigned char V[TAMANHO_ARRAY + 1];
+    unsigned char V[MAX + 1];
     
     construirNumeros(V);
     mostrarNumeros(V);
-    
-    if (verificarRepetido(V)) {
+    bool repetido = verificarRepetido(V);
+    if (repetido) {
         printf("A lista contem numeros repetidos.\n");
     } else {
         printf("A lista nao contem numeros repetidos.\n");
