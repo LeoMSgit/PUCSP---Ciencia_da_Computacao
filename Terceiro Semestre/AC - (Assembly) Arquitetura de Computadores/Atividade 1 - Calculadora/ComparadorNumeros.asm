@@ -1,7 +1,7 @@
 # Definição e Registro de Variáveis
-li $t1, 30	# Registra em $t0 o valor 30
-li $t2, 20	# Registra em $t0 o valor 20
-li $t3, 0	# Registra em $t0 o valor 0
+li $t1, 30	# Registra em $t1 o valor 30
+li $t2, 20	# Registra em $t2 o valor 20
+li $t3, 0	# Registra em $t3 o valor 0
 
 
 # Comparação Igualdade
