@@ -1,33 +1,37 @@
-li $t1, 30
-li $t2, 20
-li $t3, 0
+# Definição e Registro de Variáveis
+li $t1, 30	# Registra em $t0 o valor 30
+li $t2, 20	# Registra em $t0 o valor 20
+li $t3, 0	# Registra em $t0 o valor 0
 
-beq $t1, $t2, igual
+
+# Comparação Igualdade
+beq $t1, $t2, igual	# A função 'beq' compara os valores registrados em $t1 e $t2, caso sejam iguais, o programa seguirá para o loop "igual"
 
 
-slt $t0, $t1, $t2 # Compara de t1 < t2
-# 0 = Não || 1 = Sim
+# Comparação Maior-Menor
+slt $t0, $t1, $t2 	# A função 'slt' verifica se '$t1 < $t2' é verdadeiro ou falso e registra o resultado em $t0, sendo: 0 = FALSO || 1 = VERDADEIRO
+
 
 #Desvio Maior
-beq $t0, $t3, maior
+beq $t0, $t3, maior	# A função 'beq' compara os valores registrados em $t0 e $t3, caso sejam iguais, o programa seguiá para o loop "maior"
+			# Isso se traduz em, se o resultado de '$t1 < $t2' for igual a zero, significa que o valor registrado em $t1 é o maior valor, pois '$t1 < $t2' é FALSO (=0)
 
 #Desvio Menor
-bne $t0, $t3, menor
-
-#Desvio Igual
-beq $t0, $t3, igual
+bne $t0, $t3, menor	# A função 'bne' compara os valores registrados em $t0 e $t3, caso sejam diferentes, o programa seguiá para o loop "menor"
+			# Isso se traduz em, se o resultado de '$t1 < $t2' for diferente de 0, significa que o valor registrado em $t1 é o menor valor, pois '$t1 < $t2' é VERDADEIRO (=1)
+	
 
 maior:
-	move $t5, $t1
-	j fim
+	move $t5, $t1	# Aloca no espaço $t5 o mesmo conteúdo de $t1, ou seja, o MAIOR VALOR
+	j fim		# Pula para a Sessão "fim"
 	
 menor:
-	move $t5, $t2
-	j fim
+	move $t5, $t2	#Aloca no espaço $t5 o mesmo conteúdo de $t2, ou seja, o MAIOR VALOR
+	j fim		# Pula para a Sessão "fim"
 	
 igual:
-	move $t5, $t2
-	j fim
+	move $t5, $t2	#Aloca no espaço $t5 o mesmo conteúdo de $t2, como ambos são iguais, ambos são o MAIOR VALOR
+	j fim		# Pula para a Sessão "fim"
 
-fim:
-	syscall
+fim:			# Encerra o programa
+			
