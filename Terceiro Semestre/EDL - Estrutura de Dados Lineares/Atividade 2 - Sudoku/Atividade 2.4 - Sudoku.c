@@ -12,6 +12,9 @@
 #define FANTASMA 63
 #define TAM 9
 
+void imprimirMatriz(unsigned char M[][]);
+bool verificarRepetido(unsigned char V[]);
+
 void imprimirMatriz(unsigned char M[10][10]) {
     int i, j;
     printf("Matriz:\n");
