@@ -7,6 +7,7 @@
    - Classe em Java é uma entidade que combina tanto o estado quanto o comportamento
      - Estado: Representado pelos atributos (ou variáveis) dentro da classe
      - Comportamento: Representado pelos métodos (ou funções) que definem as ações que os objetos dessa classe podem realizar
+
    3.2) Método (Função): um método é uma função definida dentro de uma classe
    - Os métodos podem ser usados para realizar ações ou manipular os dados (atributos) de um objeto
    - Diferente de funções em C ou outras linguagens, os métodos em Java sempre pertencem a uma classe ou a um objeto
