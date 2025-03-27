@@ -1,46 +1,46 @@
 package com.mycompany.cadastro;
 
-public class CadastroAluno {
-    private String ra;        // RA do aluno
-    private String curso;     // Curso do aluno
-    private String periodo;   // Período do aluno
+public class CadastroAluno extends CadastroPessoa {
+    private String ra;
+    private String curso;
+    private int semestre;
 
-    // Construtor que recebe RA, curso e período
-    public CadastroAluno(String ra, String curso, String periodo) {
+    public CadastroAluno(String nome, int idade, String id, String ra, String curso, int semestre) {
+        super(nome, idade, id);
         this.ra = ra;
         this.curso = curso;
-        this.periodo = periodo;
+        this.semestre = semestre;
     }
 
-    // Método para exibir os dados completos do aluno
+    @Override
     public void exibirDados() {
-        System.out.println("RA                    : " + ra);
-        System.out.println("Curso                 : " + curso);
-        System.out.println("Período               : " + periodo);
+        super.exibirDados();
+        System.out.println("RA                   : " + ra);
+        System.out.println("Curso                : " + curso);
+        System.out.println("Semestre             : " + semestre);
     }
 
-    // Métodos getters e setters
     public String getRa() {
         return ra;
-    }
-
-    public String getCurso() {
-        return curso;
-    }
-
-    public String getPeriodo() {
-        return periodo;
     }
 
     public void setRa(String ra) {
         this.ra = ra;
     }
 
+    public String getCurso() {
+        return curso;
+    }
+
     public void setCurso(String curso) {
         this.curso = curso;
     }
 
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
+    public int getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
     }
 }
