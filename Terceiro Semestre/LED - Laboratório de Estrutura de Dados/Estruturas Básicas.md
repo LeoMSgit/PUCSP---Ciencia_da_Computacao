@@ -1,6 +1,7 @@
 1) Em java o Nome do Arquivo deve ser o mesmo nome da Classe Principal
 2) A classe principal é definida como "public class Xxxx{}", e o nome das Classes deve sempre começar com letra maiúscula (CamelCase)
 3) Java possui uma nomenclatura única que pode ser difícil inicialemente:
+
    3.1) Classe: uma classe é um modelo ou um "molde" para criar objetos
    - As classes podem conter métodos (funções) e atributos (variáveis), e podem ser usadas para definir comportamentos e características dos objetos
    - A classe encapsula tanto o estado quanto o comportamento de um tipo de objeto (funciona tanto como Função quanto como Struct)
