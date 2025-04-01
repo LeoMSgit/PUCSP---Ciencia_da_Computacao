@@ -1,0 +1,61 @@
+ 
+
+import javax.swing.*;
+
+public class TestaCadastro {
+    public static void main(String[] args) {
+        // Opção de escolha entre JOptionPane ou Prompt
+        String[] options = {"JOptionPane", "Prompt"};
+        int escolha = JOptionPane.showOptionDialog(null, "Escolha o método de entrada", "Método de Entrada",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+
+        // Condicional baseado na escolha
+        if (escolha == 0) {
+            // Usando o JOptionPane para coleta de dados
+            String nome = JOptionPane.showInputDialog("Digite o nome:");
+            String idade = JOptionPane.showInputDialog("Digite a idade:");
+            String id = JOptionPane.showInputDialog("Digite o ID:");
+
+            // Usando o JOptionPane para determinar se o cadastro é de um aluno
+            int resposta = JOptionPane.showConfirmDialog(null, "Cadastrar como Aluno?", "Cadastro", JOptionPane.YES_NO_OPTION);
+            boolean escolhaAluno = (resposta == JOptionPane.YES_OPTION);
+
+            if (escolhaAluno) {
+                String ra = JOptionPane.showInputDialog("Digite o RA do aluno:");
+                String curso = JOptionPane.showInputDialog("Digite o curso:");
+                String semestre = JOptionPane.showInputDialog("Digite o semestre:");
+
+                CadastroAluno aluno = new CadastroAluno(nome, Integer.parseInt(idade), id, ra, curso, Integer.parseInt(semestre));
+                System.out.println("Cadastro de Aluno realizado:");
+                aluno.exibirDados();
+            } else {
+                CadastroPessoa pessoa = new CadastroPessoa(nome, Integer.parseInt(idade), id);
+                System.out.println("Cadastro realizado:");
+                pessoa.exibirDados();
+            }
+        } else {
+            // Usando o Prompt para coleta de dados
+            String nome = System.console().readLine("Digite o nome: ");
+            String idade = System.console().readLine("Digite a idade: ");
+            String id = System.console().readLine("Digite o ID: ");
+
+            // Usando o Prompt para determinar se o cadastro é de um aluno
+            String resposta = System.console().readLine("Cadastrar como Aluno? (true/false): ");
+            boolean isAluno = Boolean.parseBoolean(resposta);
+
+            if (isAluno) {
+                String ra = System.console().readLine("Digite o RA do aluno: ");
+                String curso = System.console().readLine("Digite o curso: ");
+                String semestre = System.console().readLine("Digite o semestre: ");
+
+                CadastroAluno aluno = new CadastroAluno(nome, Integer.parseInt(idade), id, ra, curso, Integer.parseInt(semestre));
+                System.out.println("Cadastro de Aluno realizado:");
+                aluno.exibirDados();
+            } else {
+                CadastroPessoa pessoa = new CadastroPessoa(nome, Integer.parseInt(idade), id);
+                System.out.println("Cadastro realizado:");
+                pessoa.exibirDados();
+            }
+        }
+    }
+}
